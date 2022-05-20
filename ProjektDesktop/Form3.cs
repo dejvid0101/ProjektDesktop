@@ -136,6 +136,13 @@ namespace ProjektDesktop
             Player p = new Player();
             try
             {
+                if (!File.Exists("Favourites.txt"))
+                {
+                    File.Create("Favourites.txt");
+                   
+                   
+                }
+
                 using (StreamReader sr2 = new StreamReader("Favourites.txt"))
                 {
                     string favourites = sr2.ReadToEnd();
@@ -159,7 +166,9 @@ namespace ProjektDesktop
                         }
 
                     }
+                    sr2.Close();
                 }
+                
             }
             catch (Exception ex)
             {

@@ -68,17 +68,34 @@ namespace DAL1
             StreamReader sw = new StreamReader("Initial.txt");
             string f = sw.ReadLine();
             string[] l = f.Split(v);
+            sw.Close();
             return l;
         }
 
         public static string readFile(string m)
         {
             string f;
+            if (!File.Exists(m))
+            {
+File.Create(m);
             StreamReader sw = new StreamReader(m);
             using (sw)
             {
                 f = sw.ReadLine(); 
             }
+            sw.Close();
+            } else
+            {
+                StreamReader sw = new StreamReader(m);
+                using (sw)
+                {
+                    f = sw.ReadLine();
+                }
+                sw.Close();
+            }
+            
+
+
             
             return f;
         }

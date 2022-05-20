@@ -38,7 +38,7 @@ namespace ProjektDesktop
             labelName.Text = name;
             labelShirt.Text = shirt;    
             labelPosition.Text = position;
-            photo.ImageLocation = "blank space.png";
+            photo.ImageLocation = @"..\..\..\DAL1\Images\download.png";
             photo.SizeMode=PictureBoxSizeMode.StretchImage;
             if (favourite)
             {
@@ -68,6 +68,11 @@ namespace ProjektDesktop
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void photo_Click(object sender, EventArgs e)
         {
 
         }

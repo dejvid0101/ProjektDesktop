@@ -20,6 +20,8 @@ namespace ProjektDesktop
 
 
             Form1 f= new Form1();
+
+            
             string v = DAL1.TextAccess.readFile("Initial.txt");
             string openForm2 = DAL1.TextAccess.readFile("Datainitial.txt");
             if (v == null||v=="")
