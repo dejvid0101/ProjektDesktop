@@ -32,7 +32,6 @@ namespace ProjektDesktop
             {
 
                 f2.ShowDialog();
-
             }
             InitializeComponent();
             this.Cursor = Cursors.Default;

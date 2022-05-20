@@ -82,8 +82,7 @@ namespace ProjektDesktop
                 w.WriteLine(comboBox1.SelectedItem);
                 w.Close();
             }
-            Form3 j = new Form3();
-            j.Show();
+            this.Close();
         }
     }
 }
