@@ -12,9 +12,9 @@ namespace DAL1
     public class TextAccess : IAccess
     {
         
-        public static void writeToFile(string line)
+        public static void writeToFile(string line, string file)
         {
-            StreamWriter sw = new StreamWriter("Initial.txt");
+            StreamWriter sw = new StreamWriter(file);
             using (sw)
             {
 
@@ -65,7 +65,7 @@ namespace DAL1
         internal static string[] Split(char v)
         {
             
-            StreamReader sw = new StreamReader("Initial.txt");
+            StreamReader sw = new StreamReader(@"..\..\..\DAL1\Files\Initial.txt");
             string f = sw.ReadLine();
             string[] l = f.Split(v);
             sw.Close();

@@ -45,7 +45,7 @@ namespace ProjektDesktop
            
       try
             {
-                DAL1.TextAccess.writeToFile($"{comboBox1.SelectedItem.ToString()}{delim}{comboBox2.SelectedItem.ToString()}{delim}{comboBox3.SelectedItem.ToString()}");
+                DAL1.TextAccess.writeToFile($"{comboBox1.SelectedItem.ToString()}{delim}{comboBox2.SelectedItem.ToString()}{delim}{comboBox3.SelectedItem.ToString()}", @"..\..\..\DAL1\Files\Initial.txt");
             }
             catch (Exception ex)
             {

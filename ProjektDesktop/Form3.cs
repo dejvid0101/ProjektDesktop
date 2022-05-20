@@ -27,7 +27,7 @@ namespace ProjektDesktop
             this.Cursor = Cursors.WaitCursor;
 
             Form2 f2 = new Form2();
-            string openForm2 = DAL1.TextAccess.readFile("Datainitial.txt");
+            string openForm2 = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datainitial.txt");
             if (openForm2 == null || openForm2 == "")
             {
 
@@ -42,7 +42,7 @@ namespace ProjektDesktop
         {
             this.Cursor = Cursors.WaitCursor;
 
-            string j=DAL1.TextAccess.readFile("Initial.txt");
+            string j=DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
             string[] data=j.Split(':');
             if (data[0] == "Žensko nogometno")
             {
@@ -61,7 +61,7 @@ namespace ProjektDesktop
             try
             {
                 IList<DAL1.QuickType.Tekma> list = DAL1.APIAccessTeams.GetData2(m);
-                string r = DAL1.TextAccess.readFile("Datainitial.txt");
+                string r = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datainitial.txt");
                 foreach (var item in list)
                 {
 
@@ -136,14 +136,14 @@ namespace ProjektDesktop
             Player p = new Player();
             try
             {
-                if (!File.Exists("Favourites.txt"))
+                if (!File.Exists(@"..\..\..\DAL1\Files\Favourites.txt"))
                 {
-                    File.Create("Favourites.txt");
+                    File.Create(@"..\..\..\DAL1\Files\Favourites.txt");
                    
                    
                 }
 
-                using (StreamReader sr2 = new StreamReader("Favourites.txt"))
+                using (StreamReader sr2 = new StreamReader(@"..\..\..\DAL1\Files\Favourites.txt"))
                 {
                     string favourites = sr2.ReadToEnd();
                     string[] favouritesSplit = favourites.Split(':');

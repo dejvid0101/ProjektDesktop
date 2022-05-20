@@ -22,8 +22,8 @@ namespace ProjektDesktop
             Form1 f= new Form1();
 
             
-            string v = DAL1.TextAccess.readFile("Initial.txt");
-            string openForm2 = DAL1.TextAccess.readFile("Datainitial.txt");
+            string v = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
+            string openForm2 = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datanitial.txt");
             if (v == null||v=="")
             {
                 
@@ -72,11 +72,13 @@ namespace ProjektDesktop
 //StreamWriter wr = new StreamWriter("DataInitial.txt");
 //            wr.WriteLine("");
 //            wr.Close();
-            string s=DAL1.TextAccess.readFile("DataInitial.txt");
+            string s=DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datainitial.txt");
             
             if (s==null||s=="")
             {
-                StreamWriter w = new StreamWriter("DataInitial.txt");
+                DAL1.TextAccess.writeToFile($"{comboBox1.SelectedItem.ToString()}", @"..\..\..\DAL1\Files\Datainitial.txt");
+
+                StreamWriter w = new StreamWriter(@"..\..\..\DAL1\Files\Datainitial.txt");
                 w.WriteLine(comboBox1.SelectedItem);
                 w.Close();
             }

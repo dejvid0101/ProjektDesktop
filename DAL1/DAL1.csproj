@@ -88,6 +88,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Files\Datainitial.txt" />
+    <Content Include="Files\Favourites.txt" />
+    <Content Include="Files\Initial.txt" />
     <Content Include="Images\download.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
