@@ -48,6 +48,12 @@ namespace ProjektDesktop
             return a;
         }
 
+        public string ControlToString2()
+        {
+            string a= labelName.Text;
+            return a;
+        }
+
         public void FillControl(string name,string shirt,string position, bool favourite)
         {
             labelName.Text = name;

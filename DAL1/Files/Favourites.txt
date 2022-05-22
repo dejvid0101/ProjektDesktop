@@ -1,5 +1,1 @@
-Keira WALSH:4:Midfield::
-Karen BARDSLEY:1:Goalie::
-Lucy BRONZE:2:Defender:Omiljeni:
-Lucy BRONZE:2:Defender::
-Keira WALSH:4:Midfield::
+Karen BARDSLEY::Keira WALSH::Steph HOUGHTON::Jill SCOTT::Lucy BRONZE::Ellen WHITE::Georgia STANWAY::

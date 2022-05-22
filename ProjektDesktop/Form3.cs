@@ -74,17 +74,9 @@ namespace ProjektDesktop
                             u.FillControl(i.Name, i.ShirtNumber.ToString(), i.Position, p.Favourite);
                             
                             u.MouseDown += U_MouseDown;
-                            
-                            
-                                
-                            
-
-
 
                             flowLayoutPanel1.Controls.Add(u);
                             ctrllist.Add(u);
-                            
-
 
                         }
                         foreach (var i in item.AwayTeamStatistics.Substitutes)
@@ -156,20 +148,29 @@ namespace ProjektDesktop
             Player p = new Player();
             try
             {
-                if (!File.Exists(@"..\..\..\DAL1\Files\Favourites.txt"))
+                string test = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Favourites.txt");
+                if (test == "" || test == null)
                 {
-                    File.Create(@"..\..\..\DAL1\Files\Favourites.txt");
-                   
-                   
+
+                    p.Favourite = false;
+                    p.Name = i.Name;
+                    players.Add(p);
+                    return p;
+
                 }
 
-                
-                    string favourites = DAL1.TextAccess.readFileToEnd(@"..\..\..\DAL1\Files\Favourites.txt");
-                    string[] favouritesSplit = favourites.Split(':');
 
-                    foreach (string favourite in favouritesSplit)
+                    IList<String> favourites = DAL1.TextAccess.readFile2(@"..\..\..\DAL1\Files\Favourites.txt");
+                    
+
+                    foreach (string favourite in favourites)
                     {
-                        if (favourite == i.Name)
+                    string[] faves = favourite.Split(':');
+
+                    foreach (string fave in faves)
+                    {
+
+                        if (fave == i.Name)
                         {
                             p.Favourite = true;
                             p.Name = i.Name;
@@ -183,7 +184,7 @@ namespace ProjektDesktop
                             p.Name = i.Name;
                             players.Add(p);
                         }
-
+                    }
                     }
                 
                 
@@ -273,13 +274,19 @@ e.Effect = DragDropEffects.Copy;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PlayerCtrl p = new PlayerCtrl();
-
+            PlayerCtrl p; 
+            IList<String> a = new List<String>();
             for (int i = 0; i < panel1.Controls.Count; i++)
             {
                 p = panel1.Controls[i] as PlayerCtrl;
-                string[] a = p.ControlToString();
-                DAL1.TextAccess.writeToFile2(a, @"..\..\..\DAL1\Files\Favourites.txt");
+               
+                a.Add(p.ControlToString2());
+                string[] list = new string[a.Count];
+                for (int j = 0; j < a.Count; j++)
+                {
+                    list[j] = $"{a[j]}"+":";
+                }
+                DAL1.TextAccess.writeToFaves(list, @"..\..\..\DAL1\Files\Favourites.txt");
             }
 
                 //retrieve string array list from ctrl

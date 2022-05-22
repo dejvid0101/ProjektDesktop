@@ -23,7 +23,23 @@ namespace DAL1
             }
 
         }
-        
+
+        public static void writeToFaves(string[] line, string file)
+        {
+            StreamWriter sw = new StreamWriter(file);
+            using (sw)
+            {
+                string s = "";
+                for (int i = 0; i < line.Length; i++)
+                {
+                    s  += line[i] + ":";
+                }
+
+                sw.WriteLine(s);
+            }
+
+        }
+
         public static void writeToFile2(string[] line, string file)
         {
             StreamWriter sw = new StreamWriter(file, append: true);
@@ -150,10 +166,9 @@ File.Create(m);
             StreamReader sr = new StreamReader(v);
             IList<String> lineslist = new List<String>();
             string s;
-            while ((s = sr.ReadLine()) != null)
-            {
+            s = sr.ReadLine();
                 lineslist.Add(s);
-            }
+            sr.Close();
             return lineslist;
 
 
