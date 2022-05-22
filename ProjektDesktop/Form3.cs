@@ -60,6 +60,7 @@ namespace ProjektDesktop
             try
             {
                 IList<DAL1.QuickType.Tekma> list = DAL1.APIAccessTeams.GetData2(m);
+                IList<PlayerCtrl> ctrllist=new List<PlayerCtrl>();
                 string r = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datainitial.txt");
                 foreach (var item in list)
                 {
@@ -71,10 +72,18 @@ namespace ProjektDesktop
                             Player p = FillPlayersList(i);
                             PlayerCtrl u = new PlayerCtrl();
                             u.FillControl(i.Name, i.ShirtNumber.ToString(), i.Position, p.Favourite);
-
+                            
                             u.MouseDown += U_MouseDown;
+                            
+                            
+                                
+                            
+
+
 
                             flowLayoutPanel1.Controls.Add(u);
+                            ctrllist.Add(u);
+                            
 
 
                         }
@@ -84,12 +93,24 @@ namespace ProjektDesktop
                             PlayerCtrl u = new PlayerCtrl();
                             u.FillControl(i.Name, i.ShirtNumber.ToString(), i.Position, p.Favourite);
                             u.MouseDown += U_MouseDown;
+                            
                             flowLayoutPanel1.Controls.Add(u);
+                            ctrllist.Add(u);
                         }
                         break;
                     }
 
                 }
+
+                foreach(var ctrl in ctrllist)
+                {
+                    if (ctrl.IsFavourite())
+                    {
+                        panel1.Controls.Add(ctrl);
+                    }
+
+                }
+
             }
             catch (Exception ex)
             {
@@ -142,9 +163,8 @@ namespace ProjektDesktop
                    
                 }
 
-                using (StreamReader sr2 = new StreamReader(@"..\..\..\DAL1\Files\Favourites.txt"))
-                {
-                    string favourites = sr2.ReadToEnd();
+                
+                    string favourites = DAL1.TextAccess.readFileToEnd(@"..\..\..\DAL1\Files\Favourites.txt");
                     string[] favouritesSplit = favourites.Split(':');
 
                     foreach (string favourite in favouritesSplit)
@@ -165,8 +185,7 @@ namespace ProjektDesktop
                         }
 
                     }
-                    sr2.Close();
-                }
+                
                 
             }
             catch (Exception ex)
@@ -254,20 +273,18 @@ e.Effect = DragDropEffects.Copy;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
-            {
-                PlayerCtrl player = flowLayoutPanel1.Controls[i] as PlayerCtrl;
+            PlayerCtrl p = new PlayerCtrl();
 
-                if (player.BorderStyle == BorderStyle.Fixed3D)
-                {
-                    favourites.Add(player);
-                }
+            for (int i = 0; i < panel1.Controls.Count; i++)
+            {
+                p = panel1.Controls[i] as PlayerCtrl;
+                string[] a = p.ControlToString();
+                DAL1.TextAccess.writeToFile2(a, @"..\..\..\DAL1\Files\Favourites.txt");
             }
 
-            foreach (var item in favourites)
-            {
-                panel1.Controls.Add(item);
-            }
+                //retrieve string array list from ctrl
+                //write to file from each string array
+
 
         }
     }

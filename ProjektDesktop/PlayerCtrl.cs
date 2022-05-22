@@ -33,6 +33,21 @@ namespace ProjektDesktop
             return $"{label4.Text}:{labelName.Text}:{labelShirt.Text}:{labelPosition.Text}";
         }
 
+        public bool IsFavourite()
+        {
+            return Fave;
+        }
+
+        public string[] ControlToString()
+        {
+            string[] a = new string[4];
+            a[0] = labelName.Text;
+            a[1] = labelShirt.Text;
+            a[2]=labelPosition.Text;
+            a[3]=label4.Text;
+            return a;
+        }
+
         public void FillControl(string name,string shirt,string position, bool favourite)
         {
             labelName.Text = name;

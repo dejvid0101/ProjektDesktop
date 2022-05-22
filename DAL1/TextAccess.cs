@@ -23,6 +23,22 @@ namespace DAL1
             }
 
         }
+        
+        public static void writeToFile2(string[] line, string file)
+        {
+            StreamWriter sw = new StreamWriter(file, append: true);
+            using (sw)
+            {
+                string s = "";
+                for (int i = 0; i < line.Length; i++)
+                {
+                    s = s + line[i] + ":";
+                }
+
+                sw.WriteLineAsync(s);
+            }
+
+        }
 
         public static string fillLabel()
         {
@@ -81,7 +97,7 @@ File.Create(m);
             StreamReader sw = new StreamReader(m);
             using (sw)
             {
-                f = sw.ReadLine(); 
+                    f = sw.ReadLine();
             }
             sw.Close();
             } else
@@ -100,7 +116,49 @@ File.Create(m);
             return f;
         }
 
+        public static string readFileToEnd(string m)
+        {
+            string f;
+            if (!File.Exists(m))
+            {
+                File.Create(m);
+                StreamReader sw = new StreamReader(m);
+                using (sw)
+                {
+                    f = sw.ReadToEnd();
+                }
+                sw.Close();
+            }
+            else
+            {
+                StreamReader sw = new StreamReader(m);
+                using (sw)
+                {
+                    f = sw.ReadToEnd();
+                }
+                sw.Close();
+            }
 
 
+
+
+            return f;
+        }
+
+        public static IList<String> readFile2(string v)
+        {
+            StreamReader sr = new StreamReader(v);
+            IList<String> lineslist = new List<String>();
+            string s;
+            while ((s = sr.ReadLine()) != null)
+            {
+                lineslist.Add(s);
+            }
+            return lineslist;
+
+
+        }
+
+        
     }
 }
