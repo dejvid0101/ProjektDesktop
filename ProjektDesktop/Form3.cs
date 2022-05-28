@@ -13,6 +13,8 @@ using System.Windows.Forms;
 
 namespace ProjektDesktop
 {
+
+    
     public partial class Form3 : Form
     {
         private Control selectedCtrl;
@@ -53,6 +55,30 @@ namespace ProjektDesktop
             }
 
             this.Cursor = Cursors.Default;
+
+            string[] files = Directory.GetFiles(@"..\..\..\DAL1\Images\");
+            foreach (PlayerCtrl item in flowLayoutPanel1.Controls)
+            {
+                foreach (string file in files)
+                {
+                    
+                    if (item.getName().Trim()== file.GetUntilOrEmpty().Trim())
+                    {
+                        item.setPhoto(file);
+                    }
+                }
+            }
+            foreach (PlayerCtrl item in panel1.Controls)
+            {
+                foreach (string file in files)
+                {
+                    
+                    if (item.getName().Trim()== file.GetUntilOrEmpty().Trim())
+                    {
+                        item.setPhoto(file);
+                    }
+                }
+            }
         }
 
         private void FillCBWData(string m)
@@ -293,6 +319,75 @@ e.Effect = DragDropEffects.Copy;
                 //write to file from each string array
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            IList<PlayerCtrl> list = new List<PlayerCtrl>();
+            foreach (PlayerCtrl item in flowLayoutPanel1.Controls)
+            {
+                if (item.BorderStyle==BorderStyle.Fixed3D)
+                {
+                    list.Add(item);
+                }
+            }
+
+            if (list.Count>1||list.Count<1)
+            {
+                MessageBox.Show("Please only select one player.");
+                return;
+            }
+
+            OpenFileDialog opnfd = new OpenFileDialog
+            {
+                Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|PNG Image|*.png"
+            };
+
+            if (opnfd.ShowDialog() == DialogResult.OK)
+            { 
+                string fileName = opnfd.FileName;
+                string safeFileName = $"{list[0].getName()}.png";
+
+                try
+                {
+                    string path = @"..\..\..\DAL1\Images\";
+                    
+                    
+                    File.Copy(fileName, path + safeFileName);
+                    
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+                foreach (PlayerCtrl item in list)
+                {
+                    item.setPhoto(@"..\..\..\DAL1\Images\" + safeFileName);
+                }
+            }
+            opnfd.Dispose();
+
+            
+        }
+    }
+    static class Helper
+    {
+        public static string GetUntilOrEmpty(this string text, string stopAt = ".")
+        {
+            if (!String.IsNullOrWhiteSpace(text))
+            {
+                int charLocation = text.LastIndexOf(stopAt, StringComparison.Ordinal)-21;
+                
+
+                if (charLocation > 0)
+                {
+                    return text.Substring(21, charLocation);
+                }
+            }
+
+            return String.Empty;
         }
     }
 }

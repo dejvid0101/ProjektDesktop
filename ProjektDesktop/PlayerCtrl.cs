@@ -12,7 +12,15 @@ namespace ProjektDesktop
 {
     public partial class PlayerCtrl : UserControl
     {
+        public string getName()
+        {
+            return labelName.Text;
+        }
 
+        public void setPhoto(string path)
+        {
+            photo.ImageLocation = path;
+        }
 
         public bool Fave;
         public PlayerCtrl()
