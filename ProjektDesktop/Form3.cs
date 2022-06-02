@@ -17,7 +17,6 @@ namespace ProjektDesktop
     
     public partial class Form3 : Form
     {
-        private Control selectedCtrl;
         private string api = "http://worldcup.sfg.io/matches";
         private string api2 = "https://world-cup-json-2018.herokuapp.com/matches";
         IList<Player> players = new List<Player>();
@@ -97,7 +96,7 @@ namespace ProjektDesktop
                         {
                             Player p = FillPlayersList(i);
                             PlayerCtrl u = new PlayerCtrl();
-                            u.FillControl(i.Name, i.ShirtNumber.ToString(), i.Position, p.Favourite);
+                            u.FillControl(i.Name, i.ShirtNumber.ToString(), i.Position.ToString(), p.Favourite);
                             
                             u.MouseDown += U_MouseDown;
 
@@ -109,7 +108,7 @@ namespace ProjektDesktop
                         {
                             Player p = FillPlayersList(i);
                             PlayerCtrl u = new PlayerCtrl();
-                            u.FillControl(i.Name, i.ShirtNumber.ToString(), i.Position, p.Favourite);
+                            u.FillControl(i.Name, i.ShirtNumber.ToString(), i.Position.ToString(), p.Favourite);
                             u.MouseDown += U_MouseDown;
                             
                             flowLayoutPanel1.Controls.Add(u);
@@ -370,6 +369,12 @@ e.Effect = DragDropEffects.Copy;
             opnfd.Dispose();
 
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form4 frm = new Form4();
+            frm.Show();
         }
     }
     static class Helper

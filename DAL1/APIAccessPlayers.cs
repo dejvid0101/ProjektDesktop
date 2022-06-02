@@ -1,4 +1,5 @@
-﻿using DAL1.QuickType;
+﻿
+using DAL1.QuickType;
 using System;
 using System.Collections;
 using System.Collections.Generic;

@@ -12,6 +12,15 @@ namespace ProjektDesktop
 {
     public partial class PlayerCtrl : UserControl
     {
+
+        public int playerCompare()
+        {
+            return int.Parse(this.labelShirt.Text);
+        }
+        public int playerCompareYC()
+        {
+            return int.Parse(this.labelPosition.Text);
+        }
         public string getName()
         {
             return labelName.Text;
@@ -79,6 +88,13 @@ namespace ProjektDesktop
                 label4.Text = "";
                 Fave=false;
             }
+        }
+
+        public void FillControl(string name, string shirt, string position)
+        {
+            labelName.Text = name;
+            labelShirt.Text = shirt;
+            labelPosition.Text = position;
         }
 
         private void label4_Click(object sender, EventArgs e)

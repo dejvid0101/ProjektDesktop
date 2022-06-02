@@ -108,7 +108,8 @@ namespace DAL1
             public long Id { get; set; }
 
             [JsonProperty("type_of_event")]
-            public string TypeOfEvent { get; set; }
+            [JsonConverter(typeof(TypeOfEventConverter))]
+            public TypeOfEvent TypeOfEvent { get; set; }
 
             [JsonProperty("player")]
             public string Player { get; set; }
@@ -289,7 +290,7 @@ namespace DAL1
             public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
             {
                 if (reader.TokenType == JsonToken.Null) return null;
-                var value = serializer.Deserialize<string>(reader);
+                string value = serializer.Deserialize<string>(reader);
                 switch (value)
                 {
                     case "goal":
