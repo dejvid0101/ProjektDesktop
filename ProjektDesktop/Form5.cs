@@ -80,6 +80,20 @@ namespace ProjektDesktop
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font f = new Font("Serif", 24);
+            e.Graphics.DrawString("Bardo and",f,Brushes.Azure,new PointF(e.MarginBounds.X, e.MarginBounds.Y));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog()==DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
     }
 }
     
