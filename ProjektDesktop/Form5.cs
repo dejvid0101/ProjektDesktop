@@ -83,8 +83,22 @@ namespace ProjektDesktop
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Font f = new Font("Serif", 24);
-            e.Graphics.DrawString("Bardo and",f,Brushes.Azure,new PointF(e.MarginBounds.X, e.MarginBounds.Y));
+            Font f = new Font("Serif", 8);
+            int pointY = e.MarginBounds.Y-40;
+            e.Graphics.DrawString("Matches:", f, Brushes.Black, new PointF(e.MarginBounds.X, pointY));
+
+            
+            foreach (PlayerCtrl item in flowLayoutPanel1.Controls)
+            {
+                pointY += 40;
+                string[] info = item.ControlToString();
+                e.Graphics.DrawString(info[0], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY));
+                e.Graphics.DrawString(info[1] +" zuschauer", f, Brushes.Black, new PointF(e.MarginBounds.X, pointY+10));
+                e.Graphics.DrawString($"Lokation: {info[2]}", f, Brushes.Black, new PointF(e.MarginBounds.X, pointY+20));
+            }
+
+            
+           
         }
 
         private void button1_Click(object sender, EventArgs e)

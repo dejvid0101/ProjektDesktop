@@ -21,6 +21,9 @@ namespace ProjektDesktop
         private string api2 = "https://world-cup-json-2018.herokuapp.com/matches";
         IList<Player> players = new List<Player>();
         IList<PlayerCtrl> favourites = new List<PlayerCtrl>();
+        IList<PlayerCtrl> ctrllist = new List<PlayerCtrl>();
+
+        int brojkopija=0;
 
 
         public Form3()
@@ -382,6 +385,66 @@ e.Effect = DragDropEffects.Copy;
             Form5 frm = new Form5();
             frm.Show();
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int pointY = e.MarginBounds.Y-150;
+            Font f = new Font("Serif", 24);
+            
+            int counter =0;
+
+            foreach (PlayerCtrl pctrl in flowLayoutPanel1.Controls)
+            {
+                flowLayoutPanel2.Controls.Add(pctrl);
+            }
+
+            
+
+            foreach(PlayerCtrl pctrl in flowLayoutPanel2.Controls)
+            {
+                if (counter>6)
+                {
+                    break;
+                }
+                pointY += 150;
+                counter++;
+                string[] info = pctrl.ControlToString();
+                flowLayoutPanel2.Controls.Remove(pctrl);
+                e.Graphics.DrawString(info[0], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY));
+                e.Graphics.DrawString(info[1], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY + 35));
+                e.Graphics.DrawString($"{info[2]}", f, Brushes.Black, new PointF(e.MarginBounds.X, pointY + 70));
+
+            }
+
+            
+
+            
+            
+           
+
+            if (flowLayoutPanel2.Controls.Count==0)
+            {
+                e.HasMorePages = false;
+                
+            }
+            else
+            {
+                e.HasMorePages = true;
+            }
+
+
+            
+        }
+
+        
+
+        private void button6_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
     }
     static class Helper
     {
@@ -400,5 +463,10 @@ e.Effect = DragDropEffects.Copy;
 
             return String.Empty;
         }
+
+        
     }
+
+   
 }
+
