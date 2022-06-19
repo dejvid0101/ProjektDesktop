@@ -41,17 +41,33 @@ namespace ProjektDesktop
             this.Cursor = Cursors.Default;
         }
 
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                if (MessageBox.Show("About to exit program?", "Confirm Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+                    e.Cancel = true;
+            }
+        }
+
+
         private void Form3_Load(object sender, EventArgs e)
         {
-            if (flowLayoutPanel1.Controls.Count!=0)
+            LoadForm();
+        }
+
+        private void LoadForm()
+        {
+            if (flowLayoutPanel1.Controls.Count != 0)
             {
                 return;
             }
 
             this.Cursor = Cursors.WaitCursor;
 
-            string j=DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
-            string[] data=j.Split(':');
+            string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
+            string[] data = j.Split(':');
             if (data[0] == "Žensko nogometno")
             {
                 FillCBWData(api);
@@ -68,8 +84,8 @@ namespace ProjektDesktop
             {
                 foreach (string file in files)
                 {
-                    
-                    if (item.getName().Trim()== file.GetUntilOrEmpty().Trim())
+
+                    if (item.getName().Trim() == file.GetUntilOrEmpty().Trim())
                     {
                         item.setPhoto(file);
                     }
@@ -79,8 +95,8 @@ namespace ProjektDesktop
             {
                 foreach (string file in files)
                 {
-                    
-                    if (item.getName().Trim()== file.GetUntilOrEmpty().Trim())
+
+                    if (item.getName().Trim() == file.GetUntilOrEmpty().Trim())
                     {
                         item.setPhoto(file);
                     }
@@ -450,6 +466,11 @@ e.Effect = DragDropEffects.Copy;
             {
                 printDocument1.Print();
             }
+        }
+
+        private void printDocument1_EndPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            LoadForm();
         }
     }
     static class Helper

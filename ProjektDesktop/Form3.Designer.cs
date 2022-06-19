@@ -45,7 +45,6 @@ namespace ProjektDesktop
             this.button6 = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -133,6 +132,7 @@ namespace ProjektDesktop
             // 
             // printDocument1
             // 
+            this.printDocument1.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_EndPrint);
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // printPreviewDialog1
@@ -169,22 +169,11 @@ namespace ProjektDesktop
             this.flowLayoutPanel3.Size = new System.Drawing.Size(10, 12);
             this.flowLayoutPanel3.TabIndex = 13;
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(467, 301);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 62);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "Reload players list";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Form3_Load);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 450);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.button6);
@@ -221,6 +210,5 @@ namespace ProjektDesktop
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Button button7;
     }
 }
