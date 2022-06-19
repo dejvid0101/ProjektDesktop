@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,44 +26,7 @@ namespace ProjektDesktop
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-
-            string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
-            string[] data = j.Split(':');
-            if (data[0] == "Žensko nogometno")
-            {
-                FillCBWData(api);
-            }
-            else
-            {
-                FillCBWData(api2);
-            }
-
-            this.Cursor = Cursors.Default;
-
-            string[] files = Directory.GetFiles(@"..\..\..\DAL1\Images\");
-            foreach (PlayerCtrl item in flowLayoutPanel1.Controls)
-            {
-                foreach (string file in files)
-                {
-
-                    if (item.getName().Trim() == file.GetUntilOrEmpty().Trim())
-                    {
-                        item.setPhoto(file);
-                    }
-                }
-            }
-            foreach (PlayerCtrl item in flowLayoutPanel1.Controls)
-            {
-                foreach (string file in files)
-                {
-
-                    if (item.getName().Trim() == file.GetUntilOrEmpty().Trim())
-                    {
-                        item.setPhoto(file);
-                    }
-                }
-            }
+            LoadForm();
         }
 
         private void FillCBWData(string m)
@@ -82,12 +46,6 @@ namespace ProjektDesktop
                             Player p = FillPlayersList(i);
                             PlayerCtrl u = new PlayerCtrl();
                             u.FillControl(i.Name, Goals(i.Name, list, "g").ToString(), Goals(i.Name, list, "y").ToString(), p.Favourite);
-
-
-
-
-
-
 
                             ctrllist.Add(u);
 
@@ -310,6 +268,133 @@ namespace ProjektDesktop
             }
 
             FillLeaderboard();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int pointY = e.MarginBounds.Y - 150;
+            Font f = new Font("Serif", 20);
+            IList list = new List<string[]>();
+
+            int counter = 0;
+
+            for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
+            {
+                PlayerCtrl item = (PlayerCtrl)flowLayoutPanel1.Controls[i];
+                list.Add(item.ControlToString());
+
+            }
+
+
+
+            for (int i = 0; i < list.Count; i++)
+            {
+
+                string[] s = (string[])list[i];
+                if (counter > 6)
+                {
+                    break;
+                }
+                if (flowLayoutPanel1.Controls.Count != 0)
+                {
+                    flowLayoutPanel1.Controls.RemoveAt(0);
+                }
+
+
+                pointY += 150;
+                counter++;
+                e.Graphics.DrawString(s[0], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY));
+                e.Graphics.DrawString($"Goals: "+s[1], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY + 35));
+                e.Graphics.DrawString($"Yellow cards: {s[2]}", f, Brushes.Black, new PointF(e.MarginBounds.X, pointY + 70));
+
+            }
+
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                list.RemoveAt(0);
+            }
+
+
+
+            if (list.Count == 0)
+            {
+                e.HasMorePages = false;
+
+            }
+            else
+            {
+
+                e.HasMorePages = true;
+                counter = 0;
+            }
+
+
+
+        }
+
+        private void printDocument1_EndPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            foreach (var ctrl in ctrllist)
+            {
+
+                flowLayoutPanel1.Controls.Add(ctrl);
+            }
+        }
+
+        private void LoadForm()
+        {
+            if (flowLayoutPanel1.Controls.Count != 0)
+            {
+                return;
+            }
+
+            this.Cursor = Cursors.WaitCursor;
+
+            string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
+            string[] data = j.Split(':');
+            if (data[0] == "Žensko nogometno")
+            {
+                FillCBWData(api);
+            }
+            else
+            {
+                FillCBWData(api2);
+            }
+
+            this.Cursor = Cursors.Default;
+
+            string[] files = Directory.GetFiles(@"..\..\..\DAL1\Images\");
+            foreach (PlayerCtrl item in flowLayoutPanel1.Controls)
+            {
+                foreach (string file in files)
+                {
+
+                    if (item.getName().Trim() == file.GetUntilOrEmpty().Trim())
+                    {
+                        item.setPhoto(file);
+                    }
+                }
+            }
+            foreach (PlayerCtrl item in panel1.Controls)
+            {
+                foreach (string file in files)
+                {
+
+                    if (item.getName().Trim() == file.GetUntilOrEmpty().Trim())
+                    {
+                        item.setPhoto(file);
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
         }
     }
 

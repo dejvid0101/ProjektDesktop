@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -410,48 +411,60 @@ e.Effect = DragDropEffects.Copy;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             int pointY = e.MarginBounds.Y-150;
-            Font f = new Font("Serif", 24);
+            Font f = new Font("Serif", 20);
+            IList list = new List<string[]>();
             
             int counter =0;
 
-            foreach (PlayerCtrl pctrl in flowLayoutPanel1.Controls)
+            for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
             {
+                PlayerCtrl item = (PlayerCtrl)flowLayoutPanel1.Controls[i];
+                list.Add(item.ControlToString());
                 
-                flowLayoutPanel2.Controls.Add(pctrl);
             }
 
             
 
-            foreach(PlayerCtrl pctrl in flowLayoutPanel2.Controls)
+            for (int i = 0; i < list.Count; i++)
             {
-                if (counter>6)
+                
+                string[] s = (string[])list[i];
+                if (counter > 6)
                 {
                     break;
                 }
+                if (flowLayoutPanel1.Controls.Count!=0)
+                {
+flowLayoutPanel1.Controls.RemoveAt(0);
+                }
+                    
+                
                 pointY += 150;
                 counter++;
-                string[] info = pctrl.ControlToString();
-                flowLayoutPanel2.Controls.Remove(pctrl);
-                e.Graphics.DrawString(info[0], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY));
-                e.Graphics.DrawString(info[1], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY + 35));
-                e.Graphics.DrawString($"{info[2]}", f, Brushes.Black, new PointF(e.MarginBounds.X, pointY + 70));
+                e.Graphics.DrawString(s[0], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY));
+                e.Graphics.DrawString(s[1], f, Brushes.Black, new PointF(e.MarginBounds.X, pointY + 35));
+                e.Graphics.DrawString($"{s[2]}", f, Brushes.Black, new PointF(e.MarginBounds.X, pointY + 70));
 
+            }
+
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                list.RemoveAt(0);
             }
 
             
 
-            
-            
-           
-
-            if (flowLayoutPanel2.Controls.Count==0)
+            if (list.Count==0)
             {
                 e.HasMorePages = false;
                 
             }
             else
             {
+                
                 e.HasMorePages = true;
+                counter = 0;
             }
 
 
