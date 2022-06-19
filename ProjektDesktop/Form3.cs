@@ -43,6 +43,11 @@ namespace ProjektDesktop
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            if (flowLayoutPanel1.Controls.Count!=0)
+            {
+                return;
+            }
+
             this.Cursor = Cursors.WaitCursor;
 
             string j=DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
@@ -395,6 +400,7 @@ e.Effect = DragDropEffects.Copy;
 
             foreach (PlayerCtrl pctrl in flowLayoutPanel1.Controls)
             {
+                
                 flowLayoutPanel2.Controls.Add(pctrl);
             }
 
