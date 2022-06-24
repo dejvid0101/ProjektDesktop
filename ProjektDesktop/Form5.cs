@@ -108,6 +108,12 @@ namespace ProjektDesktop
                 printDocument1.Print();
             }
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Postavke p = new Postavke();
+            p.ShowDialog();
+        }
     }
 }
     

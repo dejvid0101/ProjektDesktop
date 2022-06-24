@@ -24,9 +24,6 @@ namespace ProjektDesktop
         IList<PlayerCtrl> favourites = new List<PlayerCtrl>();
         IList<PlayerCtrl> ctrllist = new List<PlayerCtrl>();
 
-        int brojkopija=0;
-
-
         public Form3()
         {
             this.Cursor = Cursors.WaitCursor;
@@ -43,14 +40,7 @@ namespace ProjektDesktop
         }
 
 
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                if (MessageBox.Show("About to exit program?", "Confirm Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
-                    e.Cancel = true;
-            }
-        }
+        
 
 
         private void Form3_Load(object sender, EventArgs e)
@@ -268,8 +258,6 @@ namespace ProjektDesktop
 
 
 
-
-
         private void panel1_DragEnter_1(object sender, DragEventArgs e)
         {
 
@@ -484,6 +472,12 @@ flowLayoutPanel1.Controls.RemoveAt(0);
         private void printDocument1_EndPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             LoadForm();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Postavke p=new Postavke();
+            p.ShowDialog();
         }
     }
     static class Helper
