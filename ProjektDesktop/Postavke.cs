@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,7 +17,20 @@ namespace ProjektDesktop
         private char delim = ':';
         public Postavke()
         {
+            SetLanguage();
             InitializeComponent();
+        }
+
+        private void SetLanguage()
+        {
+            string vrr = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\SprachDatei.txt");
+            CultureInfo kltr;
+            if (string.IsNullOrEmpty(vrr) || vrr == "Engleski") {kltr =new CultureInfo("en");}
+            else { kltr =new CultureInfo("hr");}
+
+            
+
+            Thread.CurrentThread.CurrentUICulture = kltr;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,10 +56,10 @@ namespace ProjektDesktop
 
             try
             {
-                DAL1.TextAccess.writeToFile($"{comboBox1.SelectedItem.ToString()}{delim}{comboBox2.SelectedItem.ToString()}", @"..\..\..\DAL1\Files\Initial.txt");
-                DAL1.TextAccess.writeToFile($"{comboBox3.SelectedItem.ToString()}", @"..\..\..\DAL1\Files\Datainitial.txt");
-
-               
+                DAL1.TextAccess.writeToFile($"{comboBox1.SelectedItem}{delim}{comboBox2.SelectedItem.ToString()}", @"..\..\..\DAL1\Files\Initial.txt");
+                DAL1.TextAccess.writeToFile($"{comboBox3.SelectedItem}", @"..\..\..\DAL1\Files\Datainitial.txt");
+                DAL1.TextAccess.writeToFile(comboBox2.SelectedItem.ToString(), @"..\..\..\DAL1\Files\SprachDatei.txt");
+                MessageBox.Show("Please restart app to see changes.");
             }
             catch (Exception ex)
             {

@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,6 +30,10 @@ namespace ProjektDesktop
         {
             this.Cursor = Cursors.WaitCursor;
 
+            this.FormClosing += this.Form3_FormClosing;
+
+            SetLanguage();
+
             Form2 f2 = new Form2();
             string openForm2 = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datainitial.txt");
             if (openForm2 == null || openForm2 == "")
@@ -39,13 +45,33 @@ namespace ProjektDesktop
             this.Cursor = Cursors.Default;
         }
 
+        private void SetLanguage()
+        {
+            string vrr = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\SprachDatei.txt");
+            CultureInfo kltr;
+            if (string.IsNullOrEmpty(vrr) || vrr == "Engleski") { kltr = new CultureInfo("en"); }
+            else { kltr = new CultureInfo("hr"); }
 
-        
+
+
+            Thread.CurrentThread.CurrentUICulture = kltr;
+        }
+
 
 
         private void Form3_Load(object sender, EventArgs e)
         {
             LoadForm();
+        }
+
+
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                if (MessageBox.Show("Exit program?", "Confirm Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+                    e.Cancel = true;
+            }
         }
 
         private void LoadForm()

@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,7 +23,19 @@ namespace ProjektDesktop
         int rating = 1;
         public Form4()
         {
+            SetLanguage();
             InitializeComponent();
+        }
+        private void SetLanguage()
+        {
+            string vrr = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\SprachDatei.txt");
+            CultureInfo kltr;
+            if (string.IsNullOrEmpty(vrr) || vrr == "Engleski") { kltr = new CultureInfo("en"); }
+            else { kltr = new CultureInfo("hr"); }
+
+
+
+            Thread.CurrentThread.CurrentUICulture = kltr;
         }
 
         private void Form4_Load(object sender, EventArgs e)
