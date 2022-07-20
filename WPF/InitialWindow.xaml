@@ -1,0 +1,42 @@
+﻿<Window x:Class="WPF.InitialWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="InitialWindow" Height="450" Width="800">
+    <Grid>
+        <Label Margin="10,0,562,347" Padding="11" FontSize="32">Dobrodošli!</Label>
+        <Label HorizontalAlignment="Left" Margin="10,44,0,326" Padding="11" 
+               FontSize="12">Molimo odaberite željeni jezik i reprezentaciju.</Label>
+
+        <Label Margin="24,122,610,239" Padding="0" FontSize="16">Jezik:</Label>
+
+        <ComboBox x:Name="comboBox1" Margin="315,122,375,257">
+            <ComboBoxItem>Hrvatski</ComboBoxItem>
+            <ComboBoxItem>Engleski</ComboBoxItem>
+
+        </ComboBox>
+
+        <Label Margin="24,200,610,167" Padding="0" FontSize="16">Prvenstvo:</Label>
+
+        <ComboBox x:Name="comboBox2" Margin="315,190,375,189" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem>Žensko nogometno</ComboBoxItem>
+            <ComboBoxItem>Muško nogometno</ComboBoxItem>
+
+        </ComboBox>
+        <Label Margin="24,272,610,95" Padding="0" FontSize="16" Content="Rezolucija:"/>
+
+        <ComboBox x:Name="comboBox3" Margin="315,256,375,123">
+            <ComboBoxItem>1920*1080</ComboBoxItem>
+            <ComboBoxItem>1280*720</ComboBoxItem>
+            <ComboBoxItem>800*600</ComboBoxItem>
+            <ComboBoxItem>Fullscreen</ComboBoxItem>
+
+        </ComboBox>
+
+        <Button Margin="657,358,42,27" Click="Button_Click">Spremi odabir</Button>
+    </Grid>
+</Window>
