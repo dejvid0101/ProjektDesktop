@@ -91,6 +91,7 @@
     <Content Include="Files\Datainitial.txt" />
     <Content Include="Files\Favourites.txt" />
     <Content Include="Files\Initial.txt" />
+    <Content Include="Files\OppInfoWindowHelper.txt" />
     <Content Include="Files\SprachDatei.txt" />
     <Content Include="Images\download.png" />
   </ItemGroup>

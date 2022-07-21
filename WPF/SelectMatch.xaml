@@ -8,11 +8,11 @@
         Loaded="Window_Loaded"
         Title="SelectMatch" Height="450" Width="800">
     <Grid>
-        <ComboBox x:Name="comboBox1" Margin="258,41,432,338" SelectionChanged="comboBox1_SelectionChanged">
+        <ComboBox x:Name="comboBox1" Margin="217,41,473,338" SelectionChanged="comboBox1_SelectionChanged">
 
         </ComboBox>
 
-        <ComboBox x:Name="comboBox2" Margin="652,41,38,337" SelectionChanged="comboBox2_SelectionChanged">
+        <ComboBox x:Name="comboBox2" Margin="603,40,0,338" SelectionChanged="comboBox2_SelectionChanged" HorizontalAlignment="Left" Width="110">
 
         </ComboBox>
         <Label FontSize="20" Content="Reprezentacija:" HorizontalAlignment="Left" Margin="35,34,0,0" VerticalAlignment="Top" Width="197" Height="40"/>
@@ -24,6 +24,9 @@
         <Label x:Name="lblResult1" Content="" FontSize="16" HorizontalAlignment="Left" Margin="362,171,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="-2.005,0.585"/>
         <Label x:Name="lblResult2" Content="" FontSize="16" HorizontalAlignment="Left" Margin="418,171,0,0" VerticalAlignment="Top" Width="21"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="393,171,0,0" VerticalAlignment="Top" Width="30"/>
+        <Button Content="i" Height="44" Margin="323,34,0,0" VerticalAlignment="Top" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36" HorizontalAlignment="Left" Width="49"/>
+        <Button Content="i" HorizontalAlignment="Left" Height="44" Margin="713,34,0,0" VerticalAlignment="Top" Width="49" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36"/>
+
 
     </Grid>
 </Window>

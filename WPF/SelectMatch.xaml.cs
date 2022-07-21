@@ -112,10 +112,15 @@ namespace WPF
 
         private void comboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+
             if (comboBox2.SelectedItem==null)
             {
                 return;
             }
+
+            DAL1.TextAccess.writeToFile($"{comboBox2.SelectedItem.ToString()}", @"..\..\..\DAL1\Files\OppInfoWindowHelper.txt");
+
 
             try
             {
