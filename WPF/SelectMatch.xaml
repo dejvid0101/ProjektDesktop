@@ -8,24 +8,57 @@
         Loaded="Window_Loaded"
         Title="SelectMatch" Height="450" Width="800">
     <Grid>
-        <ComboBox x:Name="comboBox1" Margin="217,41,473,338" SelectionChanged="comboBox1_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+
+
+        </Grid.ColumnDefinitions>
+
+
+
+        <ComboBox Grid.Column="1" VerticalAlignment="Center" x:Name="comboBox1" SelectionChanged="comboBox1_SelectionChanged">
 
         </ComboBox>
 
-        <ComboBox x:Name="comboBox2" Margin="603,40,0,338" SelectionChanged="comboBox2_SelectionChanged" HorizontalAlignment="Left" Width="110">
+        <ComboBox Grid.Column="4"  VerticalAlignment="Center" x:Name="comboBox2" SelectionChanged="comboBox2_SelectionChanged">
 
         </ComboBox>
-        <Label FontSize="20" Content="Reprezentacija:" HorizontalAlignment="Left" Margin="35,34,0,0" VerticalAlignment="Top" Width="197" Height="40"/>
-        <Label FontSize="20" Content="Protivnik:" HorizontalAlignment="Left" Margin="455,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.051,-0.009" Height="46" Width="126"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" FontSize="16" Margin="603,361,0,0" VerticalAlignment="Top" Height="46" Width="159"/>
-        <Label x:Name="lblHost" Content="" FontSize="16" HorizontalAlignment="Left" Margin="351,144,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="-2.005,0.585"/>
-        <Label x:Name="lblOpp" Content="" FontSize="16" HorizontalAlignment="Left" Margin="408,144,0,0" VerticalAlignment="Top"/>
-        <Label Content=":" HorizontalAlignment="Left" Margin="393,171,0,0" VerticalAlignment="Top" Width="30"/>
-        <Label x:Name="lblResult1" Content="" FontSize="16" HorizontalAlignment="Left" Margin="362,171,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="-2.005,0.585"/>
-        <Label x:Name="lblResult2" Content="" FontSize="16" HorizontalAlignment="Left" Margin="418,171,0,0" VerticalAlignment="Top" Width="21"/>
-        <Label Content=":" HorizontalAlignment="Left" Margin="393,171,0,0" VerticalAlignment="Top" Width="30"/>
-        <Button Content="i" Height="44" Margin="323,34,0,0" VerticalAlignment="Top" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36" HorizontalAlignment="Left" Width="49"/>
-        <Button Content="i" HorizontalAlignment="Left" Height="44" Margin="713,34,0,0" VerticalAlignment="Top" Width="49" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36"/>
+        <Label Grid.Column="0" FontSize="20" Content="Reprezentacija:" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="197" Height="40"/>
+        <Label Grid.Column="3"  FontSize="20" Content="Protivnik:" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.051,-0.009" Height="46" Width="126"/>
+        <Button Grid.Row="4" VerticalAlignment="Top" Grid.Column="4" Content="Potvrdi" FontSize="16"/>
+        <Label Grid.Row="1" Grid.Column="2" x:Name="lblHost" Content="" FontSize="16" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="42" RenderTransformOrigin="-2.005,0.585"/>
+        <Label Grid.Row="1" Grid.Column="3" x:Name="lblOpp" Content="" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="-" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="30"/>
+        <Label Grid.Row="2" Grid.Column="2" x:Name="lblResult1" Content="" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" RenderTransformOrigin="-2.005,0.585"/>
+        <Label Grid.Row="2" Grid.Column="3" x:Name="lblResult2" Content="" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Width="21"/>
+        <Label Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Content="-" HorizontalAlignment="Left" Width="18"/>
+        <Button HorizontalAlignment="Center" Grid.Column="2" Content="i" Height="44"  VerticalAlignment="Center" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36" Width="49">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button HorizontalAlignment="Center" Grid.Column="6" Content="i" Height="44" VerticalAlignment="Center" Width="49" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
 
     </Grid>
