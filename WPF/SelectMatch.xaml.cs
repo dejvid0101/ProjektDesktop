@@ -151,7 +151,7 @@ namespace WPF
                         lblHost.Content = item.HomeTeam.Code;
                         lblOpp.Content = item.AwayTeam.Code;
 
-                        lblResult1.Content = item.HomeTeam.Goals.ToString();
+                        lblResult1.Content = "  "+item.HomeTeam.Goals.ToString();
                         lblResult2.Content = item.AwayTeam.Goals.ToString();
                     }
                     else if (item.AwayTeam.Country.ToString() ==cb1Helper &&
@@ -161,13 +161,13 @@ namespace WPF
                         lblHost.Content = item.AwayTeam.Code;
 
                         lblResult2.Content = item.HomeTeam.Goals.ToString();
-                        lblResult1.Content = item.AwayTeam.Goals.ToString();
+                        lblResult1.Content = "  "+ item.AwayTeam.Goals.ToString();
                     }
 
                 }
 
             }
-            catch (NullReferenceException nex)
+            catch (NullReferenceException)
             {
                 return;
             }
@@ -176,6 +176,20 @@ namespace WPF
                 MessageBox.Show(ex.Message);
             } 
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DAL1.TextAccess.writeToFile("1",@"..\..\..\DAL1\Files\BtnHelper.txt");
+            TeamInfoWindow t=new TeamInfoWindow();
+            t.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            DAL1.TextAccess.writeToFile("2", @"..\..\..\DAL1\Files\BtnHelper.txt");
+            TeamInfoWindow t = new TeamInfoWindow();
+            t.Show();
         }
     }
 }

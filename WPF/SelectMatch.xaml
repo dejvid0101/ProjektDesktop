@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
+        Background="#181735"
         Title="SelectMatch" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -29,36 +30,38 @@
 
 
 
-        <ComboBox Grid.Column="1" VerticalAlignment="Center" x:Name="comboBox1" SelectionChanged="comboBox1_SelectionChanged">
+        <ComboBox FontFamily="Fonts/#Dosis" Grid.Column="1" VerticalAlignment="Center" x:Name="comboBox1" SelectionChanged="comboBox1_SelectionChanged">
 
         </ComboBox>
 
-        <ComboBox Grid.Column="4"  VerticalAlignment="Center" x:Name="comboBox2" SelectionChanged="comboBox2_SelectionChanged">
+        <ComboBox FontFamily="Fonts/#Dosis" Grid.Column="4"  VerticalAlignment="Center" x:Name="comboBox2" SelectionChanged="comboBox2_SelectionChanged">
 
         </ComboBox>
-        <Label Grid.Column="0" FontSize="20" Content="Reprezentacija:" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="197" Height="40"/>
-        <Label Grid.Column="3"  FontSize="20" Content="Protivnik:" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.051,-0.009" Height="46" Width="126"/>
-        <Button Grid.Row="4" VerticalAlignment="Top" Grid.Column="4" Content="Potvrdi" FontSize="16"/>
-        <Label Grid.Row="1" Grid.Column="2" x:Name="lblHost" Content="" FontSize="16" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="42" RenderTransformOrigin="-2.005,0.585"/>
-        <Label Grid.Row="1" Grid.Column="3" x:Name="lblOpp" Content="" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Foreground="White" Grid.Column="0" FontSize="20" Content="Reprezentacija:" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="197" Height="40" FontFamily="Fonts/#Dosis"/>
+        <Label FontFamily="Fonts/#Dosis" Foreground="White" Grid.Column="3"  FontSize="20" Content="Protivnik:" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.051,-0.009" Height="46" Width="126"/>
+        <Button FontFamily="Fonts/#Dosis" Grid.Row="4" VerticalAlignment="Top" Grid.Column="4" Content="Potvrdi" FontSize="16"/>
+        <Label Foreground="White" Grid.Row="1" Grid.Column="2" FontFamily="Fonts/#Dosis" x:Name="lblHost" Content="" FontSize="16" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="64" RenderTransformOrigin="-2.005,0.585"/>
+        <Label Foreground="White" Grid.Row="1" Grid.Column="3" x:Name="lblOpp" Content="" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Fonts/#Dosis"/>
         <Label Content="-" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="30"/>
-        <Label Grid.Row="2" Grid.Column="2" x:Name="lblResult1" Content="" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" RenderTransformOrigin="-2.005,0.585"/>
-        <Label Grid.Row="2" Grid.Column="3" x:Name="lblResult2" Content="" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Width="21"/>
-        <Label Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Content="-" HorizontalAlignment="Left" Width="18"/>
-        <Button HorizontalAlignment="Center" Grid.Column="2" Content="i" Height="44"  VerticalAlignment="Center" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36" Width="49">
+        <Label FontFamily="Fonts/#Dosis" Foreground="White" Grid.Row="2" Grid.Column="2" x:Name="lblResult1" Content="" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" RenderTransformOrigin="-2.005,0.585"/>
+        <Label FontFamily="Fonts/#Dosis" Foreground="White" Grid.Row="2" Grid.Column="3" x:Name="lblResult2" Content="" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Width="21"/>
+        <Label Foreground="White" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Content="-" HorizontalAlignment="Left" Width="18"/>
+        <Button x:Name="btn1" HorizontalAlignment="Center" Grid.Column="2" Content="i" Height="44"  VerticalAlignment="Center" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36" Width="49" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button HorizontalAlignment="Center" Grid.Column="6" Content="i" Height="44" VerticalAlignment="Center" Width="49" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36">
+        <Button x:Name="btn2" HorizontalAlignment="Center" Grid.Column="6" Content="i" Height="44" VerticalAlignment="Center" Width="49" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36" Click="Button_Click_1">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
+
+        <Label Content="ffeee" Visibility="Hidden" FontWeight="Bold" Foreground="#181735" x:Name="lblHelper" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Dosis" FontSize="36"></Label>
 
 
     </Grid>

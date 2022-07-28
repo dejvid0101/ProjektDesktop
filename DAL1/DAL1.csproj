@@ -88,6 +88,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Files\BtnHelper.txt" />
     <Content Include="Files\Datainitial.txt" />
     <Content Include="Files\Favourites.txt" />
     <Content Include="Files\Initial.txt" />
