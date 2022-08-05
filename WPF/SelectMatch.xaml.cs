@@ -46,8 +46,10 @@ namespace WPF
                 MessageBox.Show(ex.Message);
             }
 
-            
+
         }
+
+       
 
         private void FillCBWData(string api)
         {
@@ -98,12 +100,10 @@ namespace WPF
             string[] data = j.Split(':');
             if (data[0] == "Žensko nogometno")
             {
-                // fill controls with data and append to layoutpanel
                 FillCBWData(api);
             }
             else
             {
-                // fill controls with data and append to layoutpanel
                 FillCBWData(api2);
             }
 
@@ -140,19 +140,20 @@ namespace WPF
                 {
                     list = DAL1.APIAccessTeams.GetData2(api2);
                 }
-
+                // select country according to selected item and do something with the info
                 foreach (var item in list)
                 {
 
                     if (item.HomeTeam.Country.ToString() == cb1Helper &&
                         item.AwayTeam.Country.ToString()==cb2Helper)
                     {
-
                         lblHost.Content = item.HomeTeam.Code;
                         lblOpp.Content = item.AwayTeam.Code;
 
                         lblResult1.Content = "  "+item.HomeTeam.Goals.ToString();
                         lblResult2.Content = item.AwayTeam.Goals.ToString();
+
+                        UCField.FillField(item);
                     }
                     else if (item.AwayTeam.Country.ToString() ==cb1Helper &&
                         item.HomeTeam.Country.ToString() == cb2Helper)
@@ -162,6 +163,8 @@ namespace WPF
 
                         lblResult2.Content = item.HomeTeam.Goals.ToString();
                         lblResult1.Content = "  "+ item.AwayTeam.Goals.ToString();
+
+                        UCField.FillField(item);
                     }
 
                 }
