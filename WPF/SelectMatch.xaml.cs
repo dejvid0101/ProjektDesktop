@@ -194,5 +194,10 @@ namespace WPF
             TeamInfoWindow t = new TeamInfoWindow();
             t.Show();
         }
+
+        private void UCField_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

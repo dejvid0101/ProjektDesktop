@@ -29,7 +29,6 @@ namespace WPF
         {
 
             lblName.Content = name;
-            lblShirt.Content = shirt;
 
         }
 

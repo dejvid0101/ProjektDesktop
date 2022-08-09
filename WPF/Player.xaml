@@ -8,12 +8,8 @@
              d:DesignHeight="70" d:DesignWidth="70"
              Background="White">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Label VerticalAlignment="Center" FontSize="12" Foreground="Black" Grid.Row="0" x:Name="lblName" Content="Pelagić"></Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="Black" Grid.Row="1" x:Name="lblShirt" Content="18"></Label>
+        
+        <Label FontSize="9" Foreground="Black" x:Name="lblName" Content="Pelagić" Width="60" Margin="3,4,3,3"/>
     </Grid>
 </UserControl>
    

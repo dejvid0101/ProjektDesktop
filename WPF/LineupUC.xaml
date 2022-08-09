@@ -33,37 +33,44 @@
 
         </Grid.RowDefinitions>
 
-        <local:Player Grid.Row="1" x:Name="r1c0">
+        <local:Player Visibility="Hidden" Grid.Row="1" x:Name="r1c0">
 
         </local:Player>
 
-        <local:Player Grid.Row="0" Grid.Column="1">
-
-        </local:Player><local:Player Grid.Row="1" Grid.Column="1">
+        <local:Player Visibility="Hidden" Grid.Row="0" Grid.Column="1" x:Name="r0c1">
 
         </local:Player>
-        <local:Player Grid.Row="2" Grid.Column="1">
+        <local:Player Visibility="Hidden" Grid.Row="1" Grid.Column="1" x:Name="r1c1">
 
         </local:Player>
-        <local:Player Grid.Row="3" Grid.Column="1">
+        <local:Player Visibility="Hidden" Grid.Row="2" Grid.Column="1" x:Name="r2c1">
 
         </local:Player>
-        <local:Player Grid.Row="0" Grid.Column="2">
+        <local:Player Visibility="Hidden" Grid.Row="3" Grid.Column="1" x:Name="r3c1">
 
         </local:Player>
-        <local:Player Grid.Row="1" Grid.Column="2">
+        <local:Player Visibility="Hidden" Grid.Row="0" Grid.Column="2" x:Name="r0c2">
 
-        </local:Player><local:Player Grid.Row="2" Grid.Column="2">
+        </local:Player>
+        <local:Player Visibility="Hidden" Grid.Row="1" Grid.Column="2" x:Name="r1c2">
 
-        </local:Player><local:Player Grid.Row="3" Grid.Column="2">
+        </local:Player>
+        <local:Player Visibility="Hidden" Grid.Row="2" Grid.Column="2" x:Name="r2c2">
 
-        </local:Player><local:Player Grid.Row="0" Grid.Column="3">
+        </local:Player>
+        <local:Player Visibility="Hidden" Grid.Row="3" Grid.Column="2" x:Name="r3c2">
 
-        </local:Player><local:Player Grid.Row="1" Grid.Column="3">
+        </local:Player>
+        <local:Player Visibility="Hidden" Grid.Row="0" Grid.Column="3" x:Name="r0c3">
 
-        </local:Player><local:Player Grid.Row="2" Grid.Column="3">
+        </local:Player>
+        <local:Player Visibility="Hidden" Grid.Row="1" Grid.Column="3" x:Name="r1c3">
 
-        </local:Player><local:Player Grid.Row="3" Grid.Column="3">
+        </local:Player>
+        <local:Player Visibility="Hidden" Grid.Row="2" Grid.Column="3" x:Name="r2c3">
+
+        </local:Player>
+        <local:Player Visibility="Hidden" Grid.Row="3" Grid.Column="3" x:Name="r3c3">
 
         </local:Player>
         
