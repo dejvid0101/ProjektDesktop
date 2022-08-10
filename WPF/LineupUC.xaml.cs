@@ -43,6 +43,7 @@ namespace WPF
                     //lines.Add(z);
                     r1c0.lblName.Content = z;
                     r1c0.Visibility = Visibility.Visible;
+                    r1c0.lblTeam.Content = t.HomeTeam.Code;
                     //work in progress
                 }
                 if (t.HomeTeamStatistics.StartingEleven[i].Position== "Defender")
@@ -67,25 +68,29 @@ namespace WPF
             {
                 if (defenders.Count==4)
                 {
-                    r0c1.lblName.Content = defenders[0];
-                    r0c1.Visibility = Visibility.Visible;
+                    r3c1.lblName.Content = defenders[0];
+                    r3c1.Visibility = Visibility.Visible;
+                    r3c1.lblTeam.Content = t.HomeTeam.Code;
                     defenders.RemoveAt(0);
                 }
                 else if (defenders.Count==3)
                 {
                     r1c1.lblName.Content = defenders[0];
                     r1c1.Visibility = Visibility.Visible;
+                    r1c1.lblTeam.Content = t.HomeTeam.Code;
                     defenders.RemoveAt(0);
                 }
                 else if (defenders.Count == 2)
                 {
                     r2c1.lblName.Content = defenders[0];
                     r2c1.Visibility = Visibility.Visible;
+                    r2c1.lblTeam.Content = t.HomeTeam.Code;
                     defenders.RemoveAt(0);
                 }else if (defenders.Count == 1)
                 {
-                    r3c1.lblName.Content = defenders[0];
-                    r3c1.Visibility = Visibility.Visible;
+                    r0c1.lblName.Content = defenders[0];
+                    r0c1.Visibility = Visibility.Visible;
+                    r0c1.lblTeam.Content = t.HomeTeam.Code;
                     defenders.RemoveAt(0);
                 }
 
@@ -94,25 +99,29 @@ namespace WPF
             {
                 if (midfielders.Count==4)
                 {
-                    r0c2.lblName.Content = midfielders[0];
-                    r0c2.Visibility = Visibility.Visible;
+                    r3c2.lblName.Content = midfielders[0];
+                    r3c2.Visibility = Visibility.Visible;
+                    r3c2.lblTeam.Content = t.HomeTeam.Code;
                     midfielders.RemoveAt(0);
                 }
                 else if (midfielders.Count==3)
                 {
                     r1c2.lblName.Content = midfielders[0];
                     r1c2.Visibility = Visibility.Visible;
+                    r1c2.lblTeam.Content = t.HomeTeam.Code;
                     midfielders.RemoveAt(0);
                 }
                 else if (midfielders.Count == 2)
                 {
                     r2c2.lblName.Content = midfielders[0];
                     r2c2.Visibility = Visibility.Visible;
+                    r2c2.lblTeam.Content = t.HomeTeam.Code;
                     midfielders.RemoveAt(0);
                 }else if (midfielders.Count == 1)
                 {
-                    r3c2.lblName.Content = midfielders[0];
-                    r3c2.Visibility = Visibility.Visible;
+                    r0c2.lblName.Content = midfielders[0];
+                    r0c2.Visibility = Visibility.Visible;
+                    r0c2.lblTeam.Content = t.HomeTeam.Code;
                     midfielders.RemoveAt(0);
                 }
 
@@ -122,32 +131,170 @@ namespace WPF
             {
                 if (forwards.Count == 4)
                 {
-                    r0c3.lblName.Content = forwards[0];
-                    r0c3.Visibility = Visibility.Visible;
+                    r3c3.lblName.Content = forwards[0];
+                    r3c3.Visibility = Visibility.Visible;
+                    r3c3.lblTeam.Content = t.HomeTeam.Code;
                     forwards.RemoveAt(0);
                 }
                 else if (forwards.Count == 3)
                 {
                     r1c3.lblName.Content = forwards[0];
                     r1c3.Visibility = Visibility.Visible;
+                    r1c3.lblTeam.Content = t.HomeTeam.Code;
                     forwards.RemoveAt(0);
                 }
                 else if (forwards.Count == 2)
                 {
                     r2c3.lblName.Content = forwards[0];
                     r2c3.Visibility = Visibility.Visible;
+                    r2c3.lblTeam.Content = t.HomeTeam.Code;
                     forwards.RemoveAt(0);
                 }
                 else if (forwards.Count == 1)
                 {
-                    r3c3.lblName.Content = forwards[0];
-                    r3c3.Visibility = Visibility.Visible;
+                    r0c3.lblName.Content = forwards[0];
+                    r0c3.Visibility = Visibility.Visible;
+                    r0c3.lblTeam.Content = t.HomeTeam.Code;
+                    forwards.RemoveAt(0);
+                }
+
+            }
+
+            defenders.Clear();
+            midfielders.Clear();
+            forwards.Clear();
+
+            for (int i = 0; i < t.AwayTeamStatistics.StartingEleven.Length; i++)
+            {
+                string z = t.AwayTeamStatistics.StartingEleven[i].Name;
+                string s = t.AwayTeamStatistics.StartingEleven[i].ShirtNumber.ToString();
+                if (t.AwayTeamStatistics.StartingEleven[i].Position == "Goalie")
+                {
+                    //lines.Add(z);
+                    r2c7.lblName.Content = z;
+                    r2c7.Visibility = Visibility.Visible;
+                    r2c7.lblTeam.Content = t.AwayTeam.Code;
+                    //work in progress
+                }
+                if (t.AwayTeamStatistics.StartingEleven[i].Position == "Defender")
+                {
+                    defenders.Add(z);
+
+                }
+                if (t.AwayTeamStatistics.StartingEleven[i].Position == "Midfield")
+                {
+                    midfielders.Add(z);
+
+                }
+                if (t.AwayTeamStatistics.StartingEleven[i].Position == "Forward")
+                {
+                    forwards.Add(z);
+
+                }
+
+            }  // test please
+
+            while (defenders.Count != 0)
+            {
+                if (defenders.Count == 4)
+                {
+                    r3c6.lblName.Content = defenders[0];
+                    r3c6.Visibility = Visibility.Visible;
+                    r3c6.lblTeam.Content = t.AwayTeam.Code;
+                    defenders.RemoveAt(0);
+                }
+                else if (defenders.Count == 3)
+                {
+                    r1c6.lblName.Content = defenders[0];
+                    r1c6.Visibility = Visibility.Visible;
+                    r1c6.lblTeam.Content = t.AwayTeam.Code;
+                    defenders.RemoveAt(0);
+                }
+                else if (defenders.Count == 2)
+                {
+                    r2c6.lblName.Content = defenders[0];
+                    r2c6.Visibility = Visibility.Visible;
+                    r2c6.lblTeam.Content = t.AwayTeam.Code;
+                    defenders.RemoveAt(0);
+                }
+                else if (defenders.Count == 1)
+                {
+                    r0c6.lblName.Content = defenders[0];
+                    r0c6.Visibility = Visibility.Visible;
+                    r0c6.lblTeam.Content = t.AwayTeam.Code;
+                    defenders.RemoveAt(0);
+                }
+
+            }
+            while (midfielders.Count != 0)
+            {
+                if (midfielders.Count == 4)
+                {
+                    r3c5.lblName.Content = midfielders[0];
+                    r3c5.Visibility = Visibility.Visible;
+                    r3c5.lblTeam.Content = t.AwayTeam.Code;
+                    midfielders.RemoveAt(0);
+                }
+                else if (midfielders.Count == 3)
+                {
+                    r1c5.lblName.Content = midfielders[0];
+                    r1c5.Visibility = Visibility.Visible;
+                    r1c5.lblTeam.Content = t.AwayTeam.Code;
+                    midfielders.RemoveAt(0);
+                }
+                else if (midfielders.Count == 2)
+                {
+                    r2c5.lblName.Content = midfielders[0];
+                    r2c5.Visibility = Visibility.Visible;
+                    r2c5.lblTeam.Content = t.AwayTeam.Code;
+                    midfielders.RemoveAt(0);
+                }
+                else if (midfielders.Count == 1)
+                {
+                    r0c5.lblName.Content = midfielders[0];
+                    r0c5.Visibility = Visibility.Visible;
+                    r0c5.lblTeam.Content = t.AwayTeam.Code;
+                    midfielders.RemoveAt(0);
+                }
+
+            }
+
+            while (forwards.Count != 0)
+            {
+                if (forwards.Count == 4)
+                {
+                    r3c4.lblName.Content = forwards[0];
+                    r3c4.Visibility = Visibility.Visible;
+                    r3c4.lblTeam.Content = t.AwayTeam.Code;
+                    forwards.RemoveAt(0);
+                }
+                else if (forwards.Count == 3)
+                {
+                    r1c4.lblName.Content = forwards[0];
+                    r1c4.Visibility = Visibility.Visible;
+                    r1c4.lblTeam.Content = t.AwayTeam.Code;
+                    forwards.RemoveAt(0);
+                }
+                else if (forwards.Count == 2)
+                {
+                    r2c4.lblName.Content = forwards[0];
+                    r2c4.Visibility = Visibility.Visible;
+                    r2c4.lblTeam.Content = t.AwayTeam.Code;
+                    forwards.RemoveAt(0);
+                }
+                else if (forwards.Count == 1)
+                {
+                    r0c4.lblName.Content = forwards[0];
+                    r0c4.Visibility = Visibility.Visible;
+                    r0c4.lblTeam.Content = t.AwayTeam.Code;
                     forwards.RemoveAt(0);
                 }
 
             }
 
 
-        }
+        
+
+    }
     }
 }

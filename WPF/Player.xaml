@@ -7,9 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="70"
              Background="White">
+   
     <Grid>
-        
-        <Label FontSize="9" Foreground="Black" x:Name="lblName" Content="Pelagić" Width="60" Margin="3,4,3,3"/>
+       <Label VerticalAlignment="Center" FontSize="9" Foreground="Black" x:Name="lblName" Content="Pelagić" Height="32"/>
+       <Label VerticalAlignment="Top" FontSize="8" Foreground="Black" x:Name="lblTeam" Content="" Height="32"/>
     </Grid>
 </UserControl>
    
