@@ -65,6 +65,9 @@
     <Compile Include="Player.xaml.cs">
       <DependentUpon>Player.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerInfoWindow.xaml.cs">
+      <DependentUpon>PlayerInfoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectMatch.xaml.cs">
       <DependentUpon>SelectMatch.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Player.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

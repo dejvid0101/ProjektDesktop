@@ -296,5 +296,38 @@ namespace WPF
         
 
     }
+
+        private void r1c0_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Player p=sender as Player;
+            p.Background = Brushes.DarkGray; p.lblName.Foreground = Brushes.White;
+            p.lblTeam.Foreground = Brushes.White;
+            Cursor = Cursors.Hand;
+        }
+        // white half mouseleave
+        private void r1c0_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Player p = sender as Player;
+            p.Background = Brushes.White; p.lblName.Foreground = Brushes.Black;
+            p.lblTeam.Foreground = Brushes.Black;
+            Cursor = Cursors.Arrow;
+        }
+        // bisque half mouseleave
+        private void r0c4_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Player p = sender as Player;
+            p.Background = Brushes.Bisque; p.lblName.Foreground = Brushes.Black;
+            p.lblTeam.Foreground = Brushes.Black;
+            Cursor = Cursors.Arrow;
+        }
+
+        private void r1c0_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Player player = sender as Player;
+            string c = player.lblName.Content.ToString();
+            DAL1.TextAccess.writeToFile(c, @"..\..\..\DAL1\Files\PlayerInfoHelper.txt");
+            PlayerInfoWindow p = new PlayerInfoWindow();
+            p.Show();
+        }
     }
 }
