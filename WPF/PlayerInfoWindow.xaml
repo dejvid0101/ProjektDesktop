@@ -22,14 +22,35 @@
 
 
     </Window.Triggers>
+    <Window.Background>
+        
+        <VisualBrush Opacity="0.5" Stretch="None">
+            <VisualBrush.Visual>
+                <Image Width="800" Opacity="0.8" Source="Fonts\ff.jpg">
+                    <Image.Effect>
+                        <BlurEffect Radius="40" ></BlurEffect>
+                    </Image.Effect>
+                </Image>
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label VerticalAlignment="Center" Grid.Row="0" Content="Name" x:Name="lblName"></Label>
-        <Label VerticalAlignment="Center" Grid.Row="1" Content="14" x:Name="lblShirt"></Label>
-        <Label VerticalAlignment="Center" Grid.Row="2" Content="Midfielder" x:Name="lblPosition"></Label>
-    </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Label FontSize="32" VerticalAlignment="Center" Grid.Row="0" Content="Name" Foreground="Gold" FontWeight="Bold" x:Name="lblName"></Label>
+        <Label FontSize="32" VerticalAlignment="Center" Grid.Row="1" Content="14" Foreground="Gold" x:Name="lblShirt"></Label>
+        <Label FontSize="32" VerticalAlignment="Center" Grid.Row="2" Content="Midfielder" Foreground="Gold" x:Name="lblPosition"></Label>
+        <Label FontSize="32" VerticalAlignment="Center" Grid.Row="3" Content="Captain" Foreground="Gold" x:Name="lblCaptain"></Label>
+        <Image Grid.Column="2" Width="100" Source="C:\Users\David\OneDrive - Visoko uciliste Algebra\Desktop\ProjektDesktop\DAL1\Images\download.png">
+        </Image>
+        </Grid>
 </Window>

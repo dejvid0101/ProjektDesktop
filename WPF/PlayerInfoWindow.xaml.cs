@@ -53,14 +53,31 @@ namespace WPF
                     {
 
                         lblShirt.Content = item.AwayTeamStatistics.StartingEleven[i].ShirtNumber;
+                        lblPosition.Content = item.AwayTeamStatistics.StartingEleven[i].Position;
+
+                        if (!item.AwayTeamStatistics.StartingEleven[i].Captain)
+                        {
+                            lblCaptain.Content = "";
+
+                        }
+                        else if (item.AwayTeamStatistics.StartingEleven[i].Captain)
+                        {
+                            lblCaptain.Content = "Captain";
+                        }
+
                         // do the same for other attributes
                         break;
                     }
+
+
                 }
+
+               
 
 
             }
 
+            
         }
     }
 }

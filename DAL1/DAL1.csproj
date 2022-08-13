@@ -95,7 +95,7 @@
     <Content Include="Files\OppInfoWindowHelper.txt" />
     <Content Include="Files\PlayerInfoHelper.txt" />
     <Content Include="Files\SprachDatei.txt" />
-    <Content Include="Images\download.png" />
+    <Resource Include="Images\download.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
