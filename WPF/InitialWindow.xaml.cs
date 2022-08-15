@@ -21,6 +21,10 @@ namespace WPF
     {
         public InitialWindow()
         {
+            if (true)
+            {
+
+            }
             InitializeComponent();
         }
 
@@ -57,6 +61,8 @@ namespace WPF
             }
 
 
+            SelectMatch s = new SelectMatch();
+            s.Show();
             this.Close();
 
         }

@@ -24,11 +24,14 @@ namespace WPF
             InitializeComponent();
 
             string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\BtnHelper.txt");
-            if (j == "1")
-            {
 
-                try
+                if (j == "1")
                 {
+                
+                try
+            {
+               
+
                     string r = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datainitial.txt");
                     IList<DAL1.Team> f = DAL1.TextAccess.readCountries();
 
@@ -52,11 +55,11 @@ namespace WPF
                         }
                     }
                 }
-                catch (Exception ex)
-                {
+            catch (Exception ex)
+            {
 
-                    MessageBox.Show(ex.Message);
-                }
+                MessageBox.Show(ex.Message);
+            }
             }
             else
             {
@@ -98,7 +101,7 @@ namespace WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             
-            }
+        }
             
     }
 }

@@ -29,131 +29,139 @@ namespace WPF
 
             Cursor = Cursors.Wait;
 
-            string z = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\PlayerInfoHelper.txt");
-            lblName.Content = z;
-            IList<DAL1.QuickType.Tekma> list = null;
-
-            string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
-            string[] data = j.Split(':');
-            if (data[0] == "Žensko nogometno")
+            try
             {
+                string z = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\PlayerInfoHelper.txt");
+                lblName.Content = z;
+                IList<DAL1.QuickType.Tekma> list = null;
 
-                list = DAL1.APIAccessTeams.GetData2(api);
-            }
-            else
-            {
-                list = DAL1.APIAccessTeams.GetData2(api2);
-            }
-
-            int goalscntr = 0;
-            int yellowcntr = 0;
-
-            string r = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\PlayerInfoHelper.txt");
-            foreach (var item in list)
-            {
-
-                foreach (var l in item.AwayTeamEvents)
+                string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
+                string[] data = j.Split(':');
+                if (data[0] == "Žensko nogometno")
                 {
-                    if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.Goal)
-                    {
-                        if (lblName.Content.ToString().Trim() == l.Player)
-                        {
-                            goalscntr++;
-                        }
 
-                    }
+                    list = DAL1.APIAccessTeams.GetData2(api);
                 }
-                foreach (var l in item.HomeTeamEvents)
+                else
                 {
-                    if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.Goal)
-                    {
-                        if (lblName.Content.ToString().Trim() == l.Player)
-                        {
-                            goalscntr++;
-                        }
-
-                    }
+                    list = DAL1.APIAccessTeams.GetData2(api2);
                 }
 
-            }
+                int goalscntr = 0;
+                int yellowcntr = 0;
 
-
-            foreach (var item in list)
-            {
-                foreach (var l in item.AwayTeamEvents)
+                string r = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\PlayerInfoHelper.txt");
+                foreach (var item in list)
                 {
-                    if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.YellowCard)
-                    {
-                        if (lblName.Content.ToString().Trim() == l.Player)
-                        {
-                            yellowcntr++;
-                        }
 
+                    foreach (var l in item.AwayTeamEvents)
+                    {
+                        if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.Goal)
+                        {
+                            if (lblName.Content.ToString().Trim() == l.Player)
+                            {
+                                goalscntr++;
+                            }
+
+                        }
                     }
-                }
-                foreach (var l in item.HomeTeamEvents)
-                {
-                    if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.YellowCard)
+                    foreach (var l in item.HomeTeamEvents)
                     {
-                        if (lblName.Content.ToString().Trim() == l.Player)
+                        if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.Goal)
                         {
-                            yellowcntr++;
-                        }
-
-                    }
-                }
-
-            }
-            lblGoals.Content = "Ukupno golova: " + goalscntr;
-            lblYellow.Content = "Ukupno žutih kartona: " + yellowcntr;
-
-
-
-
-            foreach (var item in list)
-            {
-
-
-
-                for (int i = 0; i < item.AwayTeamStatistics.StartingEleven.Length; i++)
-                {
-                    if (item.AwayTeamStatistics.StartingEleven[i].Name == r)
-                    {
-
-                        lblShirt.Content = item.AwayTeamStatistics.StartingEleven[i].ShirtNumber;
-                        lblPosition.Content = item.AwayTeamStatistics.StartingEleven[i].Position;
-
-                        if (!item.AwayTeamStatistics.StartingEleven[i].Captain)
-                        {
-                            lblCaptain.Content = "Team member";
+                            if (lblName.Content.ToString().Trim() == l.Player)
+                            {
+                                goalscntr++;
+                            }
 
                         }
-                        else if (item.AwayTeamStatistics.StartingEleven[i].Captain)
-                        {
-                            lblCaptain.Content = "Captain";
-                        }
-
-                        // do the same for other attributes
-                        break;
                     }
 
-
                 }
 
 
+                foreach (var item in list)
+                {
+                    foreach (var l in item.AwayTeamEvents)
+                    {
+                        if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.YellowCard)
+                        {
+                            if (lblName.Content.ToString().Trim() == l.Player)
+                            {
+                                yellowcntr++;
+                            }
+
+                        }
+                    }
+                    foreach (var l in item.HomeTeamEvents)
+                    {
+                        if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.YellowCard)
+                        {
+                            if (lblName.Content.ToString().Trim() == l.Player)
+                            {
+                                yellowcntr++;
+                            }
+
+                        }
+                    }
+
+                }
+                lblGoals.Content = "Ukupno golova: " + goalscntr;
+                lblYellow.Content = "Ukupno žutih kartona: " + yellowcntr;
 
 
+
+
+                foreach (var item in list)
+                {
+
+
+
+                    for (int i = 0; i < item.AwayTeamStatistics.StartingEleven.Length; i++)
+                    {
+                        if (item.AwayTeamStatistics.StartingEleven[i].Name == r)
+                        {
+
+                            lblShirt.Content = item.AwayTeamStatistics.StartingEleven[i].ShirtNumber;
+                            lblPosition.Content = item.AwayTeamStatistics.StartingEleven[i].Position;
+
+                            if (!item.AwayTeamStatistics.StartingEleven[i].Captain)
+                            {
+                                lblCaptain.Content = "Team member";
+
+                            }
+                            else if (item.AwayTeamStatistics.StartingEleven[i].Captain)
+                            {
+                                lblCaptain.Content = "Captain";
+                            }
+
+                            // do the same for other attributes
+                            break;
+                        }
+
+
+                    }
+
+
+
+
+                }
+
+                string[] files = Directory.GetFiles(@"..\..\..\DAL1\Images\");
+
+                foreach (string file in files)
+                {
+
+                    if (lblName.Content.ToString().Trim() == file.GetUntilOrEmpty().Trim())
+                    {
+                        imgBox.Source = new BitmapImage(new Uri(@"C:\Users\David\OneDrive - Visoko uciliste Algebra\Desktop\ProjektDesktop\DAL1\Images\" + lblName.Content.ToString().Trim() + ".png"));
+                    }
+                }
             }
-
-            string[] files = Directory.GetFiles(@"..\..\..\DAL1\Images\");
-
-            foreach (string file in files)
+            catch (Exception e)
             {
 
-                if (lblName.Content.ToString().Trim() == file.GetUntilOrEmpty().Trim())
-                {
-                    imgBox.Source = new BitmapImage(new Uri(@"C:\Users\David\OneDrive - Visoko uciliste Algebra\Desktop\ProjektDesktop\DAL1\Images\" + lblName.Content.ToString().Trim() + ".png"));
-                }
+                MessageBox.Show(e.Message);
             }
 
 
