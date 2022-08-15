@@ -505,6 +505,11 @@ flowLayoutPanel1.Controls.RemoveAt(0);
             Postavke p=new Postavke();
             p.ShowDialog();
         }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
     static class Helper
     {

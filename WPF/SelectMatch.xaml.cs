@@ -31,6 +31,38 @@ namespace WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
+            string openForm2 = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
+            if (openForm2 == null || openForm2 == "")
+            {
+                this.Hide();
+InitialWindow f2 = new InitialWindow();
+                f2.ShowDialog();
+                this.Show();
+            }
+
+            string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
+            string[] data = j.Split(':');
+            if (data[2] == "1280*720")
+            {
+                Application.Current.MainWindow.Height = 720;
+                Application.Current.MainWindow.Width = 1280;
+            }
+            else if (data[2] =="800*600")
+            {
+                Application.Current.MainWindow.Height = 600;
+                Application.Current.MainWindow.Width = 800;
+            } else if (data[2] == "1920*1080")
+            {
+                Application.Current.MainWindow.Height = 1080;
+                Application.Current.MainWindow.Width = 1920;
+            } else
+            {
+                Application.Current.MainWindow.Height = 1080;
+                Application.Current.MainWindow.Width = 1920;
+            }
+            
+
             try
             {
                 IList<DAL1.Team> f = DAL1.TextAccess.readCountries();
