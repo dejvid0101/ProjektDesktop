@@ -86,6 +86,8 @@ namespace WPF
 
         private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Cursor=Cursors.Wait;
+
             if (comboBox1.SelectedItem==null)
             {
                 return;
@@ -112,7 +114,34 @@ namespace WPF
 
         private void comboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Cursor = Cursors.Wait;
 
+            UCField.r1c1.Visibility = Visibility.Hidden;
+            UCField.r2c1.Visibility = Visibility.Hidden;
+            UCField.r0c1.Visibility = Visibility.Hidden;
+            UCField.r3c1.Visibility = Visibility.Hidden;
+            UCField.r1c2.Visibility = Visibility.Hidden;
+            UCField.r2c2.Visibility = Visibility.Hidden;
+            UCField.r3c2.Visibility = Visibility.Hidden;
+            UCField.r0c2.Visibility = Visibility.Hidden;
+            UCField.r1c3.Visibility = Visibility.Hidden;
+            UCField.r0c3.Visibility = Visibility.Hidden;
+            UCField.r2c3.Visibility = Visibility.Hidden;
+            UCField.r3c3.Visibility = Visibility.Hidden;
+            UCField.r3c4.Visibility = Visibility.Hidden;
+            UCField.r2c4.Visibility = Visibility.Hidden;
+            UCField.r1c4.Visibility = Visibility.Hidden;
+            UCField.r0c4.Visibility = Visibility.Hidden;
+            UCField.r0c5.Visibility = Visibility.Hidden;
+            UCField.r1c5.Visibility = Visibility.Hidden;
+            UCField.r2c5.Visibility = Visibility.Hidden;
+            UCField.r3c5.Visibility = Visibility.Hidden;
+            UCField.r3c6.Visibility = Visibility.Hidden;
+            UCField.r2c6.Visibility = Visibility.Hidden;
+            UCField.r1c6.Visibility = Visibility.Hidden;
+            UCField.r0c6.Visibility = Visibility.Hidden;
+            UCField.r1c0.Visibility = Visibility.Hidden;
+            UCField.r2c7.Visibility = Visibility.Hidden;
 
             if (comboBox2.SelectedItem==null)
             {
@@ -177,7 +206,9 @@ namespace WPF
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            } 
+            }
+
+            Cursor = Cursors.Arrow;
 
         }
 

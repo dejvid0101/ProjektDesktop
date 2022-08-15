@@ -66,17 +66,13 @@
             </Button.Resources>
         </Button>
 
-        <local:LineupUC Visibility="Visible" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" x:Name="UCField" Loaded="UCField_Loaded">
+        <local:LineupUC Visibility="Visible" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" x:Name="UCField" Loaded="UCField_Loaded">
            
 
 
         </local:LineupUC>
         
-        <local:LineupUC Visibility="Visible" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" x:Name="UCField2">
-           
-
-
-        </local:LineupUC>
+       
         
     </Grid>
 </Window>

@@ -323,10 +323,12 @@ namespace WPF
 
         private void r1c0_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            Cursor = Cursors.Wait;
             Player player = sender as Player;
             string c = player.lblName.Content.ToString();
             DAL1.TextAccess.writeToFile(c, @"..\..\..\DAL1\Files\PlayerInfoHelper.txt");
             PlayerInfoWindow p = new PlayerInfoWindow();
+            
             p.Show();
         }
     }

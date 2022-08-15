@@ -22,45 +22,41 @@ namespace WPF
         public TeamInfoWindow()
         {
             InitializeComponent();
-        }
 
-        // at load check helper files to see which team should be shown
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
             string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\BtnHelper.txt");
-            if (j=="1")
+            if (j == "1")
             {
 
-            try
-            {
-                string r = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datainitial.txt");
-                IList<DAL1.Team> f = DAL1.TextAccess.readCountries();
-
-                foreach (var item in f)
+                try
                 {
-                    if (r==$"{item.Country} ({item.FifaCode})")
+                    string r = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Datainitial.txt");
+                    IList<DAL1.Team> f = DAL1.TextAccess.readCountries();
+
+                    foreach (var item in f)
                     {
-                            lblWon.Content=$"{item.Country} ({item.FifaCode})";
+                        if (r == $"{item.Country} ({item.FifaCode})")
+                        {
+                            lblWon.Content = $"{item.Country} ({item.FifaCode})";
                             lblWon1.Content = $"Wins: {item.Wins}";
                             lblLost.Content = $"Defeats: {item.Losses}";
                             lblDraw.Content = $"Draws: {item.Draws}";
                             lblDealt.Content = $"Goals scored: {item.GoalsFor}";
                             lblReceived.Content = $"Goals received: {item.GoalsAgainst}";
 
-                            if (item.GoalDifferential<0)
+                            if (item.GoalDifferential < 0)
                             {
                                 lblDiff.Foreground = Brushes.Red;
                             }
                             lblDiff.Content = $"Goal differential: {item.GoalsFor - item.GoalsAgainst}";
 
                         }
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
+                catch (Exception ex)
+                {
 
-                MessageBox.Show(ex.Message);
-            }
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
@@ -96,6 +92,12 @@ namespace WPF
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        // at load check helper files to see which team should be shown
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
             }
             
     }

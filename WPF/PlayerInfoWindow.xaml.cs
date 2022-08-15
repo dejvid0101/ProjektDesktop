@@ -26,10 +26,8 @@ namespace WPF
         public PlayerInfoWindow()
         {
             InitializeComponent();
-        }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+            Cursor = Cursors.Wait;
 
             string z = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\PlayerInfoHelper.txt");
             lblName.Content = z;
@@ -53,59 +51,59 @@ namespace WPF
             string r = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\PlayerInfoHelper.txt");
             foreach (var item in list)
             {
-               
-                            foreach (var l in item.AwayTeamEvents)
-                            {
-                                if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.Goal)
-                                {
-                                    if (lblName.Content.ToString().Trim() == l.Player)
-                                    {
-                                        goalscntr++;
-                                    }
 
-                                }
-                            }
-                            foreach (var l in item.HomeTeamEvents)
-                            {
-                                if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.Goal)
-                                {
-                                    if (lblName.Content.ToString().Trim() == l.Player)
-                                    {
-                                        goalscntr++;
-                                    }
-
-                                }
-                            }
-
-                        }
-                    
-                    
-                        foreach (var item in list)
+                foreach (var l in item.AwayTeamEvents)
+                {
+                    if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.Goal)
+                    {
+                        if (lblName.Content.ToString().Trim() == l.Player)
                         {
-                            foreach (var l in item.AwayTeamEvents)
-                            {
-                                if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.YellowCard)
-                                {
-                                    if (lblName.Content.ToString().Trim() == l.Player)
-                                    {
-                                        yellowcntr++;
-                                    }
-
-                                }
-                            }
-                            foreach (var l in item.HomeTeamEvents)
-                            {
-                                if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.YellowCard)
-                                {
-                                    if (lblName.Content.ToString().Trim() == l.Player)
-                                    {
-                                        yellowcntr++;
-                                    }
-
-                                }
-                            }
-
+                            goalscntr++;
                         }
+
+                    }
+                }
+                foreach (var l in item.HomeTeamEvents)
+                {
+                    if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.Goal)
+                    {
+                        if (lblName.Content.ToString().Trim() == l.Player)
+                        {
+                            goalscntr++;
+                        }
+
+                    }
+                }
+
+            }
+
+
+            foreach (var item in list)
+            {
+                foreach (var l in item.AwayTeamEvents)
+                {
+                    if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.YellowCard)
+                    {
+                        if (lblName.Content.ToString().Trim() == l.Player)
+                        {
+                            yellowcntr++;
+                        }
+
+                    }
+                }
+                foreach (var l in item.HomeTeamEvents)
+                {
+                    if (l.TypeOfEvent == DAL1.QuickType.TypeOfEvent.YellowCard)
+                    {
+                        if (lblName.Content.ToString().Trim() == l.Player)
+                        {
+                            yellowcntr++;
+                        }
+
+                    }
+                }
+
+            }
             lblGoals.Content = "Ukupno golova: " + goalscntr;
             lblYellow.Content = "Ukupno žutih kartona: " + yellowcntr;
 
@@ -154,14 +152,27 @@ namespace WPF
 
                 if (lblName.Content.ToString().Trim() == file.GetUntilOrEmpty().Trim())
                 {
-                    imgBox.Source = new BitmapImage(new Uri(@"C:\Users\David\OneDrive - Visoko uciliste Algebra\Desktop\ProjektDesktop\DAL1\Images\"+ lblName.Content.ToString().Trim() +".png"));
+                    imgBox.Source = new BitmapImage(new Uri(@"C:\Users\David\OneDrive - Visoko uciliste Algebra\Desktop\ProjektDesktop\DAL1\Images\" + lblName.Content.ToString().Trim() + ".png"));
                 }
             }
 
 
+            Cursor = Cursors.Arrow;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+
+
+
 
         }
-        
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+
+        }
     }
     static class Helper
     {

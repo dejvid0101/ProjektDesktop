@@ -6,14 +6,15 @@
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
         Title="PlayerInfoWindow" Height="450" Width="800"
+        ContentRendered="Window_ContentRendered"
         Loaded="Window_Loaded">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
 
             <BeginStoryboard>
 
-                <Storyboard TargetProperty="Width">
-                    <DoubleAnimation From="0" To="800" Duration="0:0:0.3"></DoubleAnimation>
+                <Storyboard TargetProperty="Opacity">
+                    <DoubleAnimation From="0" To="1"  Duration="0:0:0.3"></DoubleAnimation>
                 </Storyboard>
 
             </BeginStoryboard>
@@ -46,12 +47,12 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label FontSize="32" VerticalAlignment="Center" Grid.Row="0" Content="Name" Foreground="Gold" FontWeight="Bold" x:Name="lblName"></Label>
-        <Label FontSize="32" VerticalAlignment="Center" Grid.Row="1" Content="14" Foreground="Gold" x:Name="lblShirt"></Label>
-        <Label FontSize="32" VerticalAlignment="Center" Grid.Row="2" Content="Midfielder" Foreground="Gold" x:Name="lblPosition"></Label>
-        <Label FontSize="24" VerticalAlignment="Center" Grid.Row="3" Content="Captain" Foreground="Gold" x:Name="lblCaptain"></Label>
-        <Label FontSize="16" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Content="Captain" Foreground="Gold" x:Name="lblGoals"></Label>
-        <Label FontSize="16" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Content="Captain" Foreground="Gold" x:Name="lblYellow"></Label>
+        <Label FontFamily="Fonts/#Dosis" FontSize="32" VerticalAlignment="Center" Grid.Row="0" Content="Name" Foreground="Gold" FontWeight="Bold" x:Name="lblName"></Label>
+        <Label FontFamily="Fonts/#Dosis" FontSize="32" VerticalAlignment="Center" Grid.Row="1" Content="14" Foreground="Gold" x:Name="lblShirt"></Label>
+        <Label FontFamily="Fonts/#Dosis" FontSize="32" VerticalAlignment="Center" Grid.Row="2" Content="Midfielder" Foreground="Gold" x:Name="lblPosition"></Label>
+        <Label FontFamily="Fonts/#Dosis" FontSize="24" VerticalAlignment="Center" Grid.Row="3" Content="Captain" Foreground="Gold" x:Name="lblCaptain"></Label>
+        <Label FontFamily="Fonts/#Dosis" FontSize="16" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Content="Captain" Foreground="Gold" x:Name="lblGoals"></Label>
+        <Label FontFamily="Fonts/#Dosis" FontSize="16" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Content="Captain" Foreground="Gold" x:Name="lblYellow"></Label>
         <Image x:Name="imgBox" Grid.Column="1" Width="100" Source="C:\Users\David\OneDrive - Visoko uciliste Algebra\Desktop\ProjektDesktop\DAL1\Images\download.png" Margin="150,0,150,108" Grid.RowSpan="3">
         
         </Image>
