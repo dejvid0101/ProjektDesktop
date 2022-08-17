@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Dobrodosli" xml:space="preserve">
-    <value>Dobrodošli!</value>
+    <value>Welcome!</value>
   </data>
   <data name="Molimo" xml:space="preserve">
-    <value>Molimo odaberite željeni jezik i reprezentaciju.</value>
+    <value>Please pick the desired team and language.</value>
   </data>
 </root>

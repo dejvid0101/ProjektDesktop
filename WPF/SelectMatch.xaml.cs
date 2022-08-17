@@ -41,27 +41,38 @@ InitialWindow f2 = new InitialWindow();
                 this.Show();
             }
 
-            string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
-            string[] data = j.Split(':');
-            if (data[2] == "1280*720")
+            try
             {
-                Application.Current.MainWindow.Height = 720;
-                Application.Current.MainWindow.Width = 1280;
+                string j = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
+                string[] data = j.Split(':');
+                if (data[2] == "1280*720")
+                {
+                    Application.Current.MainWindow.Height = 720;
+                    Application.Current.MainWindow.Width = 1280;
+                }
+                else if (data[2] == "800*600")
+                {
+                    Application.Current.MainWindow.Height = 600;
+                    Application.Current.MainWindow.Width = 800;
+                }
+                else if (data[2] == "1920*1080")
+                {
+                    Application.Current.MainWindow.Height = 1080;
+                    Application.Current.MainWindow.Width = 1920;
+                }
+                else
+                {
+                    Application.Current.MainWindow.WindowState= WindowState.Maximized;
+                    Application.Current.MainWindow.WindowStyle = WindowStyle.None;
+                }
+
             }
-            else if (data[2] =="800*600")
+            catch (Exception)
             {
-                Application.Current.MainWindow.Height = 600;
-                Application.Current.MainWindow.Width = 800;
-            } else if (data[2] == "1920*1080")
-            {
-                Application.Current.MainWindow.Height = 1080;
-                Application.Current.MainWindow.Width = 1920;
-            } else
-            {
-                Application.Current.MainWindow.Height = 1080;
-                Application.Current.MainWindow.Width = 1920;
+
+                MessageBox.Show("Fatal error, please restart the program.");
+                Environment.Exit(1);
             }
-            
 
             try
             {

@@ -68,6 +68,11 @@
     <Compile Include="PlayerInfoWindow.xaml.cs">
       <DependentUpon>PlayerInfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en-US.resx</DependentUpon>
+    </Compile>
     <Compile Include="SelectMatch.xaml.cs">
       <DependentUpon>SelectMatch.xaml</DependentUpon>
     </Compile>
@@ -116,8 +121,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\Dosis-VariableFont_wght.ttf" />

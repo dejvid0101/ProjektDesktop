@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +23,7 @@ namespace WPF
     {
         public InitialWindow()
         {
-            
+            SetLanguage();
             InitializeComponent();
         }
 
@@ -60,6 +62,18 @@ namespace WPF
 
             this.Close();
 
+        }
+
+        private void SetLanguage()
+        {
+            string vrr = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\SprachDatei.txt");
+            CultureInfo kltr;
+            if (string.IsNullOrEmpty(vrr) || vrr == "Engleski") { kltr = new CultureInfo("en"); }
+            else { kltr = new CultureInfo("hr"); }
+
+
+
+            Thread.CurrentThread.CurrentUICulture = kltr;
         }
     }
 }

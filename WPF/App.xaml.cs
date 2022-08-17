@@ -13,5 +13,10 @@ namespace WPF
     /// </summary>
     public partial class App : Application
     {
+        App() { 
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+        }
+
+
     }
 }

@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
+        xmlns:rs="clr-namespace:WPF.Properties"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Background="#181735"
         Title="InitialWindow" Height="450" Width="800">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -23,17 +25,17 @@
 
         </Grid.RowDefinitions>
 
-        <Label Padding="14 0 0 0" Grid.Row="1" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="32">Dobrodošli!</Label>
-        <Label Padding="14 0 0 0" Grid.Row="2" Foreground="White" FontFamily="Fonts/#Dosis" HorizontalAlignment="Left"
-            FontSize="12">Molimo odaberite željeni jezik i reprezentaciju.</Label>
+        <Label x:Name="Dobrodosli" Padding="14 0 0 0" Grid.Row="1" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="32" Content="{x:Static rs:Resources.Dobrodosli}"></Label>
+        <Label x:Name="Molimo" Padding="14 0 0 0" Grid.Row="2" Foreground="White" FontFamily="Fonts/#Dosis" HorizontalAlignment="Left"
+            FontSize="12" Content="{x:Static rs:Resources.Molimo}"></Label>
 
         <Label Padding="14 0 0 0" Grid.Row="3" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="16">Jezik:</Label>
 
-        <ComboBox Grid.Row="3" x:Name="comboBox1" HorizontalAlignment="Center" Margin="0,0,0,48" Grid.RowSpan="2" Height="40" Width="135">
+       <ComboBox Grid.Row="3" x:Name="comboBox1" HorizontalAlignment="Center" Margin="0,0,0,48" Grid.RowSpan="2" Height="40" Width="135">
             <ComboBoxItem>Hrvatski</ComboBoxItem>
             <ComboBoxItem>Engleski</ComboBoxItem>
 
-        </ComboBox>
+        </ComboBox> 
 
         <Label Padding="14 0 0 0" Grid.Row="4" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="16">Prvenstvo:</Label>
 
