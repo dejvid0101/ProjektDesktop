@@ -23,7 +23,7 @@ namespace WPF
     {
         public InitialWindow()
         {
-            SetLanguage();
+            //SetLanguage();
             InitializeComponent();
         }
 
