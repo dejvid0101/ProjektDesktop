@@ -2,6 +2,7 @@
 using ProjektDesktop;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,12 +32,12 @@ namespace WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
             string openForm2 = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\Initial.txt");
             if (openForm2 == null || openForm2 == "")
             {
                 this.Hide();
-InitialWindow f2 = new InitialWindow();
+                InitialWindow f2 = new InitialWindow();
                 f2.ShowDialog();
                 this.Show();
             }
@@ -62,7 +63,7 @@ InitialWindow f2 = new InitialWindow();
                 }
                 else
                 {
-                    Application.Current.MainWindow.WindowState= WindowState.Maximized;
+                    Application.Current.MainWindow.WindowState = WindowState.Maximized;
                     Application.Current.MainWindow.WindowStyle = WindowStyle.None;
                 }
 
@@ -92,7 +93,7 @@ InitialWindow f2 = new InitialWindow();
 
         }
 
-       
+
 
         private void FillCBWData(string api)
         {
@@ -129,9 +130,9 @@ InitialWindow f2 = new InitialWindow();
 
         private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Cursor=Cursors.Wait;
+            Cursor = Cursors.Wait;
 
-            if (comboBox1.SelectedItem==null)
+            if (comboBox1.SelectedItem == null)
             {
                 return;
             }
@@ -186,7 +187,7 @@ InitialWindow f2 = new InitialWindow();
             UCField.r1c0.Visibility = Visibility.Hidden;
             UCField.r2c7.Visibility = Visibility.Hidden;
 
-            if (comboBox2.SelectedItem==null)
+            if (comboBox2.SelectedItem == null)
             {
                 return;
             }
@@ -217,24 +218,24 @@ InitialWindow f2 = new InitialWindow();
                 {
 
                     if (item.HomeTeam.Country.ToString() == cb1Helper &&
-                        item.AwayTeam.Country.ToString()==cb2Helper)
+                        item.AwayTeam.Country.ToString() == cb2Helper)
                     {
                         lblHost.Content = item.HomeTeam.Code;
                         lblOpp.Content = item.AwayTeam.Code;
 
-                        lblResult1.Content = "  "+item.HomeTeam.Goals.ToString();
+                        lblResult1.Content = "  " + item.HomeTeam.Goals.ToString();
                         lblResult2.Content = item.AwayTeam.Goals.ToString();
 
                         UCField.FillField(item);
                     }
-                    else if (item.AwayTeam.Country.ToString() ==cb1Helper &&
+                    else if (item.AwayTeam.Country.ToString() == cb1Helper &&
                         item.HomeTeam.Country.ToString() == cb2Helper)
                     {
                         lblOpp.Content = item.HomeTeam.Code;
                         lblHost.Content = item.AwayTeam.Code;
 
                         lblResult2.Content = item.HomeTeam.Goals.ToString();
-                        lblResult1.Content = "  "+ item.AwayTeam.Goals.ToString();
+                        lblResult1.Content = "  " + item.AwayTeam.Goals.ToString();
 
                         UCField.FillField(item);
                     }
@@ -257,8 +258,8 @@ InitialWindow f2 = new InitialWindow();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DAL1.TextAccess.writeToFile("1",@"..\..\..\DAL1\Files\BtnHelper.txt");
-            TeamInfoWindow t=new TeamInfoWindow();
+            DAL1.TextAccess.writeToFile("1", @"..\..\..\DAL1\Files\BtnHelper.txt");
+            TeamInfoWindow t = new TeamInfoWindow();
             t.Show();
         }
 
@@ -272,6 +273,19 @@ InitialWindow f2 = new InitialWindow();
         private void UCField_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Settings s = new Settings();
+            s.ShowDialog();
+        }
+
+        void DataWindow_Closing(object sender, CancelEventArgs e)
+        {
+              if (MessageBox.Show("Exit program?", "Confirm Exit", MessageBoxButton.OKCancel, MessageBoxImage.Question) != MessageBoxResult.OK)
+                    e.Cancel = true;
+            
         }
     }
 }

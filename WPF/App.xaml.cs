@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows;
 
 namespace WPF
@@ -13,8 +8,17 @@ namespace WPF
     /// </summary>
     public partial class App : Application
     {
-        App() { 
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+        App()
+        {
+            string vrr = DAL1.TextAccess.readFile(@"..\..\..\DAL1\Files\SprachDatei.txt");
+            CultureInfo kltr;
+            if (string.IsNullOrEmpty(vrr) || vrr == "Engleski") { kltr = new CultureInfo("en-US"); }
+            else { kltr = new CultureInfo("hr-HR"); }
+
+
+
+
+            System.Threading.Thread.CurrentThread.CurrentUICulture = kltr;
         }
 
 

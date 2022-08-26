@@ -120,7 +120,28 @@
   <data name="Dobrodosli" xml:space="preserve">
     <value>Dobrodošli!</value>
   </data>
+  <data name="Jezik" xml:space="preserve">
+    <value>Jezik:</value>
+  </data>
   <data name="Molimo" xml:space="preserve">
     <value>Molimo odaberite željeni jezik i reprezentaciju.</value>
+  </data>
+  <data name="Protivnik" xml:space="preserve">
+    <value>Protivnik:</value>
+  </data>
+  <data name="Prvenstvo" xml:space="preserve">
+    <value>Prvenstvo:</value>
+  </data>
+  <data name="Reprezentacija" xml:space="preserve">
+    <value>Domaćin:</value>
+  </data>
+  <data name="Rezolucija" xml:space="preserve">
+    <value>Veličina prikaza:</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Spremi</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Postavke</value>
   </data>
 </root>

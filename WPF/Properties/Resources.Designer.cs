@@ -70,11 +70,74 @@ namespace WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jezik:.
+        /// </summary>
+        public static string Jezik {
+            get {
+                return ResourceManager.GetString("Jezik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Molimo odaberite željeni jezik i reprezentaciju..
         /// </summary>
         public static string Molimo {
             get {
                 return ResourceManager.GetString("Molimo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Protivnik:.
+        /// </summary>
+        public static string Protivnik {
+            get {
+                return ResourceManager.GetString("Protivnik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prvenstvo:.
+        /// </summary>
+        public static string Prvenstvo {
+            get {
+                return ResourceManager.GetString("Prvenstvo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Domaćin:.
+        /// </summary>
+        public static string Reprezentacija {
+            get {
+                return ResourceManager.GetString("Reprezentacija", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veličina prikaza:.
+        /// </summary>
+        public static string Rezolucija {
+            get {
+                return ResourceManager.GetString("Rezolucija", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spremi.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Postavke.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
     }
