@@ -283,7 +283,7 @@ namespace WPF
 
         void DataWindow_Closing(object sender, CancelEventArgs e)
         {
-              if (MessageBox.Show("Exit program?", "Confirm Exit", MessageBoxButton.OKCancel, MessageBoxImage.Question) != MessageBoxResult.OK)
+              if (MessageBox.Show("Exit program?", "Confirm Exit", MessageBoxButton.OKCancel, MessageBoxImage.Stop) != MessageBoxResult.OK)
                     e.Cancel = true;
             
         }
