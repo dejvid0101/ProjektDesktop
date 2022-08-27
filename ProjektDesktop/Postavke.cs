@@ -56,7 +56,7 @@ namespace ProjektDesktop
 
             try
             {
-                DAL1.TextAccess.writeToFile($"{comboBox1.SelectedItem}{delim}{comboBox2.SelectedItem.ToString()}", @"..\..\..\DAL1\Files\Initial.txt");
+                DAL1.TextAccess.writeToFile($"{comboBox1.SelectedItem}{delim}{comboBox2.SelectedItem.ToString()}{delim}800*600", @"..\..\..\DAL1\Files\Initial.txt");
                 DAL1.TextAccess.writeToFile($"{comboBox3.SelectedItem}", @"..\..\..\DAL1\Files\Datainitial.txt");
                 DAL1.TextAccess.writeToFile(comboBox2.SelectedItem.ToString(), @"..\..\..\DAL1\Files\SprachDatei.txt");
                 MessageBox.Show("Please restart app to see changes.");
@@ -95,7 +95,6 @@ namespace ProjektDesktop
 
             try
             {
-                label1.Text = DAL1.TextAccess.fillLabel();
                 FillCBWData(DAL1.TextAccess.readCountries());
             }
             catch (Exception ex)

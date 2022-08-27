@@ -287,5 +287,38 @@ namespace WPF
                     e.Cancel = true;
             
         }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void SettingsButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
+        }
+
+        private void Ellipse_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Ellipse1.Fill = new SolidColorBrush(Color.FromArgb(255,107, 104, 189));
+            
+        }
+
+        private void Ellipse_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Ellipse1.Fill = new SolidColorBrush(Color.FromArgb(255, 24, 23, 53));
+        }
+
+        private void Viewbox_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Ellipse2.Fill = new SolidColorBrush(Color.FromArgb(255, 107, 104, 189));
+
+        }
+
+        private void Viewbox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Ellipse2.Fill = new SolidColorBrush(Color.FromArgb(255, 24, 23, 53));
+
+        }
     }
 }

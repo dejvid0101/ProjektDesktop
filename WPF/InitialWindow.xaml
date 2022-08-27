@@ -29,22 +29,22 @@
         <Label x:Name="Molimo" Padding="14 0 0 0" Grid.Row="2" Foreground="White" FontFamily="Fonts/#Dosis" HorizontalAlignment="Left"
             FontSize="12" Content="{x:Static rs:Resources.Molimo}"></Label>
 
-        <Label Padding="14 0 0 0" Grid.Row="3" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="16">Jezik:</Label>
+        <Label Padding="14 0 0 0" Grid.Row="3" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="16" Content="{x:Static rs:Resources.Jezik}"></Label>
 
        <ComboBox Grid.Row="3" x:Name="comboBox1" HorizontalAlignment="Center" Margin="0,0,0,48" Grid.RowSpan="2" Height="40" Width="135">
             <ComboBoxItem>Hrvatski</ComboBoxItem>
             <ComboBoxItem>Engleski</ComboBoxItem>
 
-        </ComboBox> 
+        </ComboBox>
 
-        <Label Padding="14 0 0 0" Grid.Row="4" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="16">Prvenstvo:</Label>
+        <Label Padding="14 0 0 0" Grid.Row="4" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="16" Content="{x:Static rs:Resources.Prvenstvo}"></Label>
 
         <ComboBox Grid.Row="4" x:Name="comboBox2" HorizontalAlignment="Center" Margin="0,0,0,48" Grid.RowSpan="2" Height="40" Width="135">
             <ComboBoxItem>Žensko nogometno</ComboBoxItem>
             <ComboBoxItem>Muško nogometno</ComboBoxItem>
 
         </ComboBox>
-        <Label Padding="14 0 0 0" Grid.Row="5" HorizontalAlignment="Left" Foreground="White" FontFamily="Fonts/#Dosis"  FontSize="16" Content="Rezolucija:"/>
+        <Label Padding="14 0 0 0" Grid.Row="5" HorizontalAlignment="Left" Foreground="White" FontFamily="Fonts/#Dosis"  FontSize="16" Content="{x:Static rs:Resources.Rezolucija}"/>
 
         <ComboBox Grid.Row="5" x:Name="comboBox3"  HorizontalAlignment="Center" Margin="0,0,0,48" Grid.RowSpan="2" Height="40" Width="135">
             <ComboBoxItem>1920*1080</ComboBoxItem>

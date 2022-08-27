@@ -127,6 +127,18 @@
   <data name="button1.Text" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 10.2pt</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 22</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Team:</value>
+  </data>
+  <data name="comboBox3.Text" xml:space="preserve">
+    <value />
+  </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 22</value>
   </data>

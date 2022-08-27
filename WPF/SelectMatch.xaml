@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
-        mc:Ignorable="d"
+       mc:Ignorable="d"
         xmlns:rs="clr-namespace:WPF.Properties"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         Closing="DataWindow_Closing"
         Loaded="Window_Loaded"
         Background="#181735"
@@ -53,28 +54,29 @@
         <Label FontFamily="Fonts/#Dosis" Foreground="White" Grid.Row="2" Grid.Column="2" x:Name="lblResult1" Content="" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" RenderTransformOrigin="-2.005,0.585"/>
         <Label FontFamily="Fonts/#Dosis" Foreground="White" Grid.Row="2" Grid.Column="3" x:Name="lblResult2" Content="" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Width="21"/>
         <Label Foreground="White" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Content="-" HorizontalAlignment="Left" Width="18"/>
-        <Button x:Name="btn1" HorizontalAlignment="Center" Grid.Column="2" Content="i" Height="44"  VerticalAlignment="Center" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36" Width="49" Click="Button_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="btn2" HorizontalAlignment="Center" Grid.Column="6" Content="i" Height="44" VerticalAlignment="Center" Width="49" FontFamily="times new roman" Foreground="DarkBlue" FontWeight="bold" FontSize="36" Click="Button_Click_1">
-            <Button.Resources>
-                <Style TargetType="Border">
-                   
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Viewbox MouseEnter="Ellipse_MouseEnter"  MouseLeave="Ellipse_MouseLeave"  MouseDown="Button_Click" Grid.Column="2" Width="40" Height="40">
+            <Grid Width="10" Height="10">
+                <Ellipse x:Name="Ellipse1" Fill="#181735"/>
+                <TextBlock HorizontalAlignment="Center"  TextAlignment="Center" VerticalAlignment="Center"><fa:ImageAwesome Icon="InfoCircle" Foreground="White"></fa:ImageAwesome>
+                </TextBlock>
+            </Grid>
+        </Viewbox>
+        <Viewbox MouseEnter="Viewbox_MouseEnter"  MouseLeave="Viewbox_MouseLeave"  MouseDown="Button_Click_1" Grid.Column="6" Width="40" Height="40">
+            <Grid Width="10" Height="10">
+                <Ellipse x:Name="Ellipse2" Fill="#181735"/>
+                <TextBlock HorizontalAlignment="Center"  TextAlignment="Center" VerticalAlignment="Center"><fa:ImageAwesome Icon="InfoCircle" Foreground="White"></fa:ImageAwesome>
+                </TextBlock>
+            </Grid>
+        </Viewbox>
 
         <local:LineupUC Visibility="Visible" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" x:Name="UCField" Loaded="UCField_Loaded">
            
 
 
         </local:LineupUC>
-        <Button Margin="0 0 30 0" Grid.Row="4" Height="20" HorizontalAlignment="Right" Width="110" Content="{x:Static rs:Resources.Settings}" Click="Button_Click_2"></Button>
+        <TextBlock MouseLeave="SettingsButton_MouseLeave" MouseDown="Button_Click_2" Padding="0 0 0 0" MouseEnter="Button_MouseEnter" FontFamily="Fonts/#Dosis" Margin=" 10 0 0 0" Grid.Row="4" Height="30" HorizontalAlignment="Left" Width="50" Background="#181735" x:Name="SettingsButton">
+            <fa:ImageAwesome x:Name="SettingsIcon" Icon="Cog" Foreground="White"></fa:ImageAwesome>
+        </TextBlock>
 
 
     </Grid>
