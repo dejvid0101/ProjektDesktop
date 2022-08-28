@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -300,24 +301,51 @@ namespace WPF
 
         private void Ellipse_MouseEnter(object sender, MouseEventArgs e)
         {
-            Ellipse1.Fill = new SolidColorBrush(Color.FromArgb(255,107, 104, 189));
-            
+            ColorAnimation animation;
+            animation = new ColorAnimation
+            {
+                From = Color.FromArgb(255, 24, 23, 53),
+                To = Color.FromArgb(255, 107, 104, 189),
+                Duration = new Duration(TimeSpan.FromSeconds(0.1))
+            };
+            Ellipse1.Fill.BeginAnimation(SolidColorBrush.ColorProperty, animation);
         }
 
         private void Ellipse_MouseLeave(object sender, MouseEventArgs e)
         {
-            Ellipse1.Fill = new SolidColorBrush(Color.FromArgb(255, 24, 23, 53));
+            ColorAnimation animation;
+            animation = new ColorAnimation
+            {
+                To = Color.FromArgb(255, 24, 23, 53),
+                From = Color.FromArgb(255, 107, 104, 189),
+                Duration = new Duration(TimeSpan.FromSeconds(0.1))
+            };
+            Ellipse1.Fill.BeginAnimation(SolidColorBrush.ColorProperty, animation);
         }
 
         private void Viewbox_MouseEnter(object sender, MouseEventArgs e)
         {
-            Ellipse2.Fill = new SolidColorBrush(Color.FromArgb(255, 107, 104, 189));
+            ColorAnimation animation;
+            animation = new ColorAnimation
+            {
+                From = Color.FromArgb(255, 24, 23, 53),
+                To = Color.FromArgb(255, 107, 104, 189),
+                Duration = new Duration(TimeSpan.FromSeconds(0.1))
+            };
+            Ellipse2.Fill.BeginAnimation(SolidColorBrush.ColorProperty, animation); 
 
         }
 
         private void Viewbox_MouseLeave(object sender, MouseEventArgs e)
         {
-            Ellipse2.Fill = new SolidColorBrush(Color.FromArgb(255, 24, 23, 53));
+            ColorAnimation animation;
+            animation = new ColorAnimation
+            {
+                To = Color.FromArgb(255, 24, 23, 53),
+                From = Color.FromArgb(255, 107, 104, 189),
+                Duration = new Duration(TimeSpan.FromSeconds(0.1))
+            };
+            Ellipse2.Fill.BeginAnimation(SolidColorBrush.ColorProperty, animation);
 
         }
     }

@@ -76,6 +76,7 @@
         </local:LineupUC>
         <TextBlock MouseLeave="SettingsButton_MouseLeave" MouseDown="Button_Click_2" Padding="0 0 0 0" MouseEnter="Button_MouseEnter" FontFamily="Fonts/#Dosis" Margin=" 10 0 0 0" Grid.Row="4" Height="30" HorizontalAlignment="Left" Width="50" Background="#181735" x:Name="SettingsButton">
             <fa:ImageAwesome x:Name="SettingsIcon" Icon="Cog" Foreground="White"></fa:ImageAwesome>
+            
         </TextBlock>
 
 
